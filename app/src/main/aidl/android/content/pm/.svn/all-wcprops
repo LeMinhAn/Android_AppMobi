@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm
+END
+ApplicationInfo.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/ApplicationInfo.aidl
+END
+IPackageDeleteObserver.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/IPackageDeleteObserver.aidl
+END
+ActivityInfo.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/ActivityInfo.aidl
+END
+IPackageDataObserver.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/IPackageDataObserver.aidl
+END
+InstrumentationInfo.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/InstrumentationInfo.aidl
+END
+PackageStats.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/PackageStats.aidl
+END
+IPackageStatsObserver.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/IPackageStatsObserver.aidl
+END
+PackageCleanItem.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/PackageCleanItem.aidl
+END
+PackageInfo.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/PackageInfo.aidl
+END
+IPackageInstallObserver.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/IPackageInstallObserver.aidl
+END
+ManifestDigest.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/ManifestDigest.aidl
+END
+ParceledListSlice.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/ParceledListSlice.aidl
+END
+ContainerEncryptionParams.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/ContainerEncryptionParams.aidl
+END
+FeatureInfo.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/FeatureInfo.aidl
+END
+IPackageMoveObserver.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/IPackageMoveObserver.aidl
+END
+PackageInfoLite.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/51/trunk/%20allmobile-store/AllMobileStore/src/android/content/pm/PackageInfoLite.aidl
+END

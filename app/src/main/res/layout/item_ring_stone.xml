@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/margin_small">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvContainerRingToneItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="2dp"
+        card_view:cardElevation="3dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/layoutLinearLayoutImageCardSuggest2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/margin_small">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivThumbRingStone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_item_card_test" />
+                </LinearLayout>
+
+                <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                    android:id="@+id/cpcPlayRingStone"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:layout_centerInParent="true"
+                    app:background_progressbar_color="#07FFFFFF"
+                    app:progressbar_color="#FFFFFF" />
+
+                <ImageView
+                    android:id="@+id/ivPlayRingStone"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_play_circle" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/layoutLinearLayoutImageCardSuggest2"
+                android:layout_below="@+id/layoutLinearLayoutImageCardSuggest2">
+
+                <TextView
+                    android:id="@+id/tvNameOfRingTone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:paddingLeft="@dimen/margin_small"
+                    android:paddingRight="@dimen/margin_small"
+                    android:singleLine="true"
+                    android:textColor="#000"
+                    android:textSize="@dimen/text_size_medium" />
+            </RelativeLayout>
+
+            <vn.appsmobi.ui.ShortActionButton
+                android:id="@+id/btActionRingTone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignLeft="@+id/layoutLinearLayoutImageCardSuggest2"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@+id/layoutLinearLayoutImageCardSuggest2"></vn.appsmobi.ui.ShortActionButton>
+
+            <FrameLayout
+                android:id="@+id/flGetRingStone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@+id/layoutLinearLayoutImageCardSuggest2"
+                android:paddingLeft="@dimen/margin_large"
+                android:paddingTop="@dimen/margin_large">
+
+                <ImageView
+                    android:layout_width="@dimen/button_context_menu"
+                    android:layout_height="@dimen/button_context_menu"
+                    android:padding="@dimen/margin_small"
+                    android:src="@drawable/ic_get_app_black_48dp" />
+            </FrameLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

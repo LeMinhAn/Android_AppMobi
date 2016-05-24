@@ -1,0 +1,38 @@
+<!--<com.github.ksoichiro.android.observablescrollview.TouchInterceptionFrameLayout -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pv="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/pager_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="?attr/actionBarSize"
+        android:orientation="vertical">
+
+        <vn.appsmobi.ui.SlidingTabLayout
+            android:id="@+id/sliding_tabs"
+            android:layout_width="match_parent"
+            android:textColor="@drawable/tabbar_color_selector"
+            android:layout_height="@dimen/tab_height"
+            android:background="#FFF" />
+        <!--
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white" />
+        -->
+        <cn.yangbingqiang.android.parallaxviewpager.ParallaxViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            pv:mode="right_overlay"
+            pv:outset="62%"
+            pv:shadow_width="30dp" />
+    </LinearLayout>
+
+</RelativeLayout><!--</com.github.ksoichiro.android.observablescrollview.TouchInterceptionFrameLayout>-->

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_small"
+    android:layout_marginTop="?attr/actionBarSize">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_large">
+
+        <TextView
+            android:id="@+id/tvTitleSystem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:text="@string/setting_system"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/text_size_large" />
+
+        <TextView
+            android:id="@+id/tvTitleAutoUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTitleSystem"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:text="@string/setting_auto_update"
+            android:textColor="#000"
+            android:textSize="@dimen/text_size_medium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTitleAutoUpdate"
+            android:text="@string/setting_rule_auto_update"
+            android:textColor="@color/text_hint_color"
+            android:textSize="@dimen/text_size_medium" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/tvTitleAutoUpdate" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/text_hint_color" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_large">
+
+        <TextView
+            android:id="@+id/tvTitleUseWifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:text="@string/setting_using_wifi"
+            android:textColor="#000"
+            android:textSize="@dimen/text_size_medium" />
+
+        <TextView
+            android:id="@+id/tvTitleRuleUseWifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTitleUseWifi"
+            android:text="@string/setting_rule_using_wifi"
+            android:textColor="@color/text_hint_color"
+            android:textSize="@dimen/text_size_medium" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/tvTitleUseWifi" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/text_hint_color" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:padding="@dimen/margin_large">
+
+        <TextView
+            android:id="@+id/tvTitleRemoveHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:text="@string/setting_remote_history"
+            android:textColor="#000"
+            android:textSize="@dimen/text_size_medium" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTitleRemoveHistory"
+            android:text="@string/setting_rule_remote_history"
+            android:textColor="@color/text_hint_color"
+            android:textSize="@dimen/text_size_medium" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/tvTitleRemoveHistory" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_large">
+
+        <TextView
+            android:id="@+id/tvTitleWarning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:text="@string/setting_warning"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/text_size_large" />
+
+        <TextView
+            android:id="@+id/tvGetWarning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTitleWarning"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:text="@string/setting_get_warning"
+            android:textColor="#000"
+            android:textSize="@dimen/text_size_medium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvGetWarning"
+            android:text="@string/setting_rule_get_warning"
+            android:textColor="@color/text_hint_color"
+            android:textSize="@dimen/text_size_medium" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/tvGetWarning" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/text_hint_color" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:padding="@dimen/margin_large">
+
+        <TextView
+            android:id="@+id/tvTitleWarningUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:text="@string/setting_update_warning"
+            android:textColor="#000"
+            android:textSize="@dimen/text_size_medium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTitleWarningUpdate"
+            android:text="@string/setting_rule_update_warning"
+            android:textColor="@color/text_hint_color"
+            android:textSize="@dimen/text_size_medium" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/tvTitleWarningUpdate" />
+    </RelativeLayout>
+</LinearLayout>

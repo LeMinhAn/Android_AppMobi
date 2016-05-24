@@ -1,0 +1,217 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />.
+
+    <!-- style for text view -->
+    <!-- style for text view small-->
+    <style name="AppTheme.PopupOverlay" parent="Base.ThemeOverlay.AppCompat.Dark" />
+
+    <style name="TextView.Small" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="TextView.Small.Black" parent="TextView.Small">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="TextView.Small.White" parent="TextView.Small">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="TextView.Small.MainColor" parent="TextView.Small">
+        <item name="android:textColor">@color/main_color</item>
+    </style>
+
+    <style name="TextView.Small.Gray" parent="TextView.Small">
+        <item name="android:textColor">@color/text_hint_color</item>
+    </style>
+    <!-- style for text view medium-->
+    <style name="TextView.Medium" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="TextView.Medium.Black" parent="TextView.Medium">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="TextView.Medium.White" parent="TextView.Medium">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="TextView.Medium.MainColor" parent="TextView.Medium">
+        <item name="android:textColor">@color/main_color</item>
+    </style>
+
+    <style name="TextView.Medium.Gray" parent="TextView.Medium">
+        <item name="android:textColor">@color/text_hint_color</item>
+    </style>
+    <!-- style for text view medium-->
+    <style name="TextView.Large" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="TextView.Large.Black" parent="TextView.Large">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="TextView.Large.White" parent="TextView.Large">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="TextView.Large.MainColor" parent="TextView.Large">
+        <item name="android:textColor">@color/main_color</item>
+    </style>
+
+    <style name="TextView.Large.Gray" parent="TextView.Large">
+        <item name="android:textColor">@color/text_hint_color</item>
+    </style>
+
+    <style name="TextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1.0</item>
+    </style>
+
+    <style name="TextAppearance.Body2" parent="@style/TextAppearance">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="TextAppearance.Body2.White" parent="@style/TextAppearance.Body2">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+
+    <!-- end style for text view -->
+
+    <!-- style for material theme -->
+
+
+    <style name="PopupAnimation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+    <!-- Custom rating bar     -->
+    <style name="BlueRatingBar" parent="@android:style/Widget.Holo.RatingBar">
+        <item name="android:progressDrawable">@drawable/custom_blue_ratingbar</item>
+        <item name="android:minHeight">16dip</item>
+        <item name="android:maxHeight">16dip</item>
+        <item name="android:maxWidth">16dip</item>
+        <item name="android:minWidth">16dip</item>
+    </style>
+
+    <style name="RatingBar" parent="@android:style/Widget.Holo.RatingBar.Small">
+        <item name="colorControlNormal">#FFF</item>
+        <item name="colorControlActivated">@color/text_hint_color</item>
+    </style>
+
+
+    <!-- Rating bar for app -->
+    <style name="RatingBar.ReadOnly" parent="android:style/Widget.RatingBar">
+        <item name="android:maxHeight">@dimen/ratingbar_readonly_size</item>
+        <item name="android:progressDrawable">@drawable/ratingbar_readonly</item>
+        <item name="android:minHeight">@dimen/ratingbar_readonly_size</item>
+        <item name="android:stepSize">0.5</item>
+        <item name="android:isIndicator">true</item>
+    </style>
+
+
+    <!-- End custom rating bar -->
+
+
+    <!--______________________loading view_____________________________ -->
+    <style name="Widget.ProgressBar" parent="@android:style/Widget.ProgressBar">
+        <item name="android:indeterminateDrawable">@anim/progress_bar_ani_normal</item>
+    </style>
+
+
+    <!--_________________ End custom rating bar________________________ -->
+
+    <!-- ..... -->
+    <style name="Widget" />
+
+    <style name="Widget.RatingBar.ReadOnly" parent="@style/Widget">
+
+    </style>
+
+    <style name="Widget.Item" parent="@style/Widget">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Widget.Item.ListView" parent="@style/Widget">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+
+    </style>
+
+    <style name="Widget.Item.ListView.DoubleLine" parent="@style/Widget.Item.ListView">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/list_item_height_double_line</item>
+    </style>
+    <!-- ..... -->
+    <style name="TextAppearance.Dialog"></style>
+
+    <style name="TextAppearance.Dialog.Title">
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+    <!-- ....... -->
+    <style name="TextAppearance.Primary" parent="@style/TextAppearance">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="TextAppearance.Small" parent="@style/TextAppearance">
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="TextAppearance.Small.Gray" parent="@style/TextAppearance.Small">
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
+    <!-- .. style of dialog .. -->
+    <style name="dialog" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorForeground">#f0f0</item>
+    </style>
+
+    <style name="Background">
+        <item name="android:background">#FFFFFF</item>
+    </style>
+
+    <style name="dialog.button">
+        <item name="android:background">#b3c833</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:paddingRight">10dip</item>
+        <item name="android:textColor">@color/text_hover</item>
+        <item name="android:height">@dimen/button_height_medium</item>
+    </style>
+    <!-- listview -->
+    <style name="Widget.ListView" parent="@style/Widget">
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:padding">@dimen/margin_small</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:scrollingCache">false</item>
+        <item name="android:cacheColorHint">@null</item>
+        <item name="android:divider">@null</item>
+        <item name="android:background">@null</item>
+        <item name="android:fastScrollEnabled">false</item>
+    </style>
+</resources>

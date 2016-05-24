@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/margin_small">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvContainerColHorizontalItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="2dp"
+        card_view:cardElevation="3dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layoutLinearLayoutImageCardSuggest2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_small">
+
+                <ImageView
+                    android:id="@+id/ivImageCardSuggest2"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:scaleType="fitXY" />
+            </LinearLayout>
+
+            <vn.appsmobi.ui.ShortActionButton
+                android:id="@+id/btActionHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignLeft="@+id/layoutLinearLayoutImageCardSuggest2"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@+id/layoutLinearLayoutImageCardSuggest2"></vn.appsmobi.ui.ShortActionButton>
+
+            <FrameLayout
+                android:id="@+id/flMenuCard2Container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@+id/layoutLinearLayoutImageCardSuggest2"
+                android:paddingLeft="@dimen/margin_large"
+                android:paddingTop="@dimen/margin_large">
+
+                <ImageView
+                    android:layout_width="@dimen/button_context_menu"
+                    android:layout_height="@dimen/button_context_menu"
+                    android:padding="@dimen/margin_small"
+                    android:src="@drawable/ic_menu_card" />
+            </FrameLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

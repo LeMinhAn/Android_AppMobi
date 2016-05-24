@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.HomeActivity">
+
+    <include layout="@layout/content_main" />
+
+    <LinearLayout
+        android:id="@+id/llActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_color"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/bg_toolbar"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tvToolBarTitle"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="60dp"
+                    android:text="APPSmobi"
+                    android:textColor="#6f6f6f"
+                    android:textSize="@dimen/text_size_large"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#6f6f6f" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/apps" />
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

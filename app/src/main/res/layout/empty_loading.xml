@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="@android:color/transparent"
+    android:layout_height="fill_parent">
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="@style/Widget.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:background="@android:color/transparent"
+        android:indeterminateOnly="true" />
+
+    <LinearLayout
+        android:id="@+id/error_view_container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/keyline_1"
+        android:layout_marginLeft="@dimen/keyline_2"
+        android:layout_marginRight="@dimen/keyline_2"
+        android:layout_marginTop="@dimen/keyline_1"
+        android:background="@color/color_tranparent_black"
+        android:clickable="true"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:padding="@dimen/keyline_2">
+
+        <ImageView
+            android:id="@+id/ivDialogIcon"
+            android:layout_width="@dimen/icon_size_20dp"
+            android:layout_height="@dimen/icon_size_20dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_warning_white" />
+
+        <TextView
+            android:id="@+id/txt_message"
+            style="@style/TextAppearance.Body2.White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/keyline_1"
+            android:text="Khoong co ket noi" />
+
+        <TextView
+            style="@style/TextAppearance.Body2.White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/keyline_1"
+            android:text="|" />
+
+        <Button
+            android:id="@+id/txt_act"
+            style="@style/TextAppearance.Body2.White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/keyline_1"
+            android:background="@null"
+            android:clickable="true"
+            android:text="Thử lại"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>

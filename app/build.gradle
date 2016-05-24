@@ -1,0 +1,103 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+    repositories {
+        jcenter()
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots"
+        }
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+    defaultConfig {
+        applicationId "vn.appsmobi"
+        minSdkVersion 15
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    //-------custom rating bar library -------------
+    compile 'com.github.techery:ProperRatingBar:v0.0.3'
+    //-------------------------------------------
+    // animation ---------------------------------
+    compile 'net.steamcrafted:load-toast:1.0.9'
+    //--------------------------------------------
+    //------ bottom sheet -------------------------
+    compile 'com.cocosw:bottomsheet:1.+@aar'
+    compile('com.github.afollestad.material-dialogs:core:0.8.5.3@aar') {
+        transitive = true
+    }
+    //-------- process button ---------------------
+    compile 'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
+    //---------------------------------------------
+    compile files('libs/universal-image-loader-1.9.4.jar', 'libs/Header2ActionBar-0.2.1.jar')
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:recyclerview-v7:23.1.1'
+    compile 'com.mikhaellopez:circularprogressbar:1.0.1'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:cardview-v7:23.1.1'
+    compile 'it.sephiroth.android.library.horizontallistview:hlistview:1.2.2'
+    compile 'com.android.support:support-v4:23.1.1'
+    //------------------ volley ---------------------------
+    compile 'com.jakewharton:disklrucache:2.0.2'
+    compile 'com.mcxiaoke.volley:library-aar:1.0.0'
+    compile 'com.google.android.gms:play-services-analytics:8.3.0'
+    // detail image
+    compile 'com.koushikdutta.ion:ion:2.1.6'
+
+    compile 'com.android.support:palette-v7:23.1.0'
+    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'com.android.support:cardview-v7:23.1.0'
+    compile 'com.android.support:recyclerview-v7:23.1.0'
+
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.squareup.okhttp:okhttp:2.5.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.5.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'io.reactivex:rxandroid:1.0.1'
+
+    compile 'com.nispok:snackbar:2.11.0'
+    //compile 'com.gu:option:1.3'
+
+    compile 'com.github.lzyzsd:circleprogress:1.2.0@aar'
+    compile 'com.github.xiprox.errorview:library:1.0.0'
+
+    compile 'com.google.android.apps.muzei:muzei-api:+'
+
+    compile('com.mikepenz:aboutlibraries:5.2.6@aar') {
+        transitive = true
+    }
+    compile('com.mikepenz:materialdrawer:4.4.4@aar') {
+        transitive = true
+    }
+    compile 'com.mikepenz:iconics-core:1.7.9@aar'
+    compile 'com.mikepenz:google-material-typeface:1.2.0.1@aar'
+    compile 'com.mikepenz:fontawesome-typeface:4.4.0.1@aar'
+
+    // navigation
+    compile('com.mikepenz:materialdrawer:5.1.6@aar') {
+        transitive = true
+    }
+    //search view
+    compile 'com.github.arimorty:floatingsearchview:1.1.2'
+    compile('com.github.florent37:androidparallax:1.0.1@aar') {
+        transitive = true
+    }
+    // palalax recycview
+    compile 'cn.yangbingqiang.android:parallaxviewpager:1.0.1'
+
+}

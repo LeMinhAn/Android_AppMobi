@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivBackGroundHorizontalCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ftHorizontalCard"
+        android:layout_alignTop="@+id/ftHorizontalCard"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:id="@+id/ftHorizontalCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_small">
+
+            <TextView
+                android:id="@+id/tvTitleHorizontalCard"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:text="@string/top_install"
+                android:textColor="#000"
+                android:textSize="@dimen/text_size_large" />
+
+            <Button
+                android:id="@+id/btReadMoreCardSuggest2"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/button_height_small"
+                android:layout_weight="8"
+                android:background="@drawable/bg_shadow_radius_bt_blue"
+                android:padding="@dimen/margin_small"
+                android:text="@string/read_more"
+                android:textColor="#fff"
+                android:textSize="@dimen/text_size_medium" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:scrollbars="none"
+                android:paddingBottom="@dimen/margin_small">
+
+                <LinearLayout
+                    android:id="@+id/hsvRowItemCardSuggest2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:orientation="horizontal"></LinearLayout>
+            </HorizontalScrollView>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

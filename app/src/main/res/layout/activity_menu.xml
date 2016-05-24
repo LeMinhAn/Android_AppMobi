@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="vn.appsmobi.activity.MenuActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/ablMenuActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_color"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <com.arlib.floatingsearchview.FloatingSearchView
+            android:id="@+id/sbToolBarMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:visibility="gone"
+            app:floatingSearch_dismissOnOutsideTouch="false"
+            app:floatingSearch_leftActionMode="showHamburger"
+            app:floatingSearch_menu="@menu/search_state"
+            app:floatingSearch_searchBarMarginLeft="@dimen/margin_small"
+            app:floatingSearch_searchBarMarginRight="@dimen/margin_small"
+            app:floatingSearch_searchBarMarginTop="@dimen/margin_small"
+            app:floatingSearch_searchHint="Search..."
+            app:floatingSearch_showSearchKey="true" />
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_menu" />
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/Hometoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_margin="3dp"
+        android:background="@drawable/bg_toolbar"
+        app:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="60dp"
+                android:text="APPSmobi"
+                android:textColor="#6f6f6f"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#6f6f6f" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/apps" />
+        </LinearLayout>
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_dialog_email" />
+</android.support.design.widget.CoordinatorLayout>

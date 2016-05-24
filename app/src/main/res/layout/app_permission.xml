@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="10dip">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dip"
+        android:id="@+id/permission_wrap"
+        android:background="#FFFFFF">
+
+        <RelativeLayout
+            android:id="@+id/bottom_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/permission_btn"
+                android:layout_alignParentRight="true"
+                style="@style/dialog.button"
+                android:layout_marginRight="10dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CHẤP NHẬN"></Button>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/top_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true">
+            <!--Put whatever view item you want here -->
+            <TextView
+                android:id="@+id/permission_title"
+                android:layout_marginTop="5dip"
+                android:text="@string/app_permission"
+                style="@style/TextAppearance.Dialog.Title"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"></TextView>
+
+            <TextView
+                android:id="@+id/permission_name"
+                android:layout_below="@+id/permission_title"
+                android:layout_marginTop="5dip"
+                style="@style/TextAppearance.Dialog.Title"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"></TextView>
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/permission_list"
+            android:layout_above="@+id/bottom_view"
+            android:layout_below="@+id/top_view"
+            android:layout_marginTop="10dip"
+            android:dividerHeight="0.1dip"
+            android:divider="@color/text_hint_color"
+            android:layout_marginBottom="5dip"
+            android:paddingTop="4.0dip"
+            style="@style/Widget.ListView"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"></ListView>
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:background="@drawable/progress_bar_small_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateOnly="true"
+        style="@style/Widget.ProgressBar"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center|center_horizontal" />
+</RelativeLayout>
+

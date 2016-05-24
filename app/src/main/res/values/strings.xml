@@ -1,0 +1,152 @@
+<resources>
+    <string name="app_name">AppsMobi</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="menu_titles">
+        <item>Ứng dụng</item>
+        <item>Trò chơi</item>
+        <item>Sách</item>
+        <item>Phim</item>
+        <item>Hình nền</item>
+        <item>Nhạc chuông</item>
+
+    </string-array>
+    <array name="menu_icons">
+        <item>@drawable/apps</item>
+        <item>@drawable/game</item>
+        <item>@drawable/book</item>
+        <item>@drawable/movie</item>
+        <item>@drawable/wallpaper</item>
+        <item>@drawable/ringtone</item>
+    </array>
+    <!-- String for notification -->
+    <string name="try_again">Thử lại</string>
+    <string name="network_unavaliable">Không có kết nối mạng.</string>
+    <string name="service_unavailiable">Dịch vụ không có</string>
+    <string name="notif_title_download">TẢI</string>
+    <string name="notif_title_update">%1$s updates</string>
+    <string name="notif_installing">ĐANG CÀI ĐẶT “%1$s”…</string>
+    <string name="notif_install_successful">%1$s đã được cài đặt, Click để mở</string>
+    <string name="title_downloadx"> Tải %s %%</string>
+    <string name="title_downloading">ĐANG TẢI ...</string>
+    <!--__________________________________ _______________________________-->
+    <!-- Dialog button -->
+
+
+    <string name="app_free">MIỄN PHÍ !!!</string>
+    <string name="app_non_free">CÓ PHÍ !!!</string>
+    <string name="error_db_require_init">DatabaseHelper must init() in Application before use</string>
+    <string name="repair_progress_date_format_deafault">yyyy-MM-dd HH:mm:ss</string>
+    <string name="repair_progress_date_format">yyyy-MM-dd</string>
+    <string name="order_date_format">%-Y-%-m-%-d</string>
+    <string name="check_network">check_network</string>
+    <string name="data_error">data_error</string>
+    <string name="auth_error">auth_error</string>
+    <string name="ip_error">ip_error</string>
+    <string name="read_more">XEM THÊM</string>
+    <string name="read_more_2">THÊM</string>
+    <string name="top_install">Top cài đặt</string>
+
+    <!-- end string for item card -->
+    <!-- string for item context menu card -->
+    <string name="menu_item_card_install">CÀI ĐẶT</string>
+    <string name="installed">ĐÃ CÀI ĐẶT</string>
+    <string name="uninstall">GỠ CÀI ĐẶT</string>
+    <string name="open_app">MỞ</string>
+    <string name="get">TẢI VỀ</string>
+    <string name="title_update">CẬP NHẬT</string>
+    <string name="title_connecting">Đang kết nối</string>
+    <string name="menu_item_card_add_to_list">Thêm vào list</string>
+    <string name="menu_item_card_hate">Không thú vị</string>
+    <string name="title_installing">ĐANG CÀI ĐẶT ... </string>
+    <string name="menu_item_card_uninstall">Gỡ cài đặt</string>
+    <string name="title_pause"> Tạm dừng</string>
+    <string name="title_pending"> Đang chờ</string>
+    <string name="title_verifying">ĐANG XÁC THỰC</string>
+    <!-- end string for item context menu card -->
+    <!-- string for detail activity -->
+    <string name="rating_this_app">Đánh giá ứng dụng</string>
+    <string name="title_of_comment">Tiêu đề bình luận</string>
+    <string name="content_of_comment">Nội dung bình luận</string>
+    <string name="commit_comment">XÁC NHẬN</string>
+    <string name="read_more_comment">XEM NHIỀU BÌNH LUẬN HƠN</string>
+    <string name="user_install">Người dùng khác cùng cài đặt</string>
+    <string name="week_update">Cập nhật theo tuần</string>
+    <string name="share">Chia sẻ</string>
+    <string name="stick">Đánh dấu</string>
+    <string name="view_count_install">Lượt cài đặt</string>
+    <string name="view_rating">Đánh giá</string>
+    <string name="view_tt">Tương thích</string>
+    <string name="view_topic">Thể Loại</string>
+
+
+    <!-- string for setting activity -->
+    <string name="setting_system">Hệ thống</string>
+    <string name="setting_auto_update">Cập nhật tự động</string>
+    <string name="setting_rule_auto_update">Cho phép APPSmobi tự cập nhật</string>
+    <string name="setting_using_wifi">Sử dụng WIFI</string>
+    <string name="setting_rule_using_wifi">Chỉ cho phép cập nhật khi kết nối WIFI</string>
+    <string name="setting_remote_history">Xóa lịch sử tìm kiếm </string>
+    <string name="setting_rule_remote_history">Xóa tất cả lịch sử tìm kiếm trên thiết bị</string>
+    <string name="setting_warning">Thông báo</string>
+    <string name="setting_get_warning">Nhận thông báo</string>
+    <string name="setting_rule_get_warning">Cho phép nhận thông báo từ APPs mobi</string>
+    <string name="setting_update_warning">Thông báo cập nhật</string>
+    <string name="setting_rule_update_warning">Chỉ cho phép nhận thông báo cập nhật</string>
+
+
+    <!-- end string for detail activity  -->
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_list_card">ListCardActivity</string>
+    <string name="title_activity_app_detail">AppDetailActivity</string>
+    <string name="title_activity_app_manage">AppManageActivity</string>
+    <string name="title_activity_image_detail">ImageDetailActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_more_app">MoreAppActivity</string>
+    <string name="title_activity_test">Test</string>
+    <!-- end string for item card -->
+
+    <!-- String for dialog -->
+    <string name="text_tryagain">Vui lòng thử lại</string>
+    <string name="cancel">cancel</string>
+    <string name="ok">Ok</string>
+    <string name="Skip">Bỏ qua</string>
+    <string name="Error">Lỗi</string>
+    <string name="Goto">Tiếp tục</string>
+    <string name="text_loading">ĐANG TẢI ...</string>
+    <string name="app_permission">Giấy phép ứng dụng</string>
+    <string name="app_permission_needaccess">&lt;b> %s &lt;/b> cần truy cập vào : </string>
+    <string name="login_download">Đăng nhập để tải nhanh hơn.</string>
+    <!-- String for download manager -->
+       <string name="permdesc_downloadManager">Allows the application to
+        access the download manager and to use it to download files.
+        Malicious applications can use this to disrupt downloads and access
+        private information.</string>
+      <string name="permlab_downloadManagerAdvanced">Advanced download
+        manager functions.</string>
+     <string name="permdesc_downloadCompletedIntent">Allows the application
+        to send notifications about completed downloads. Malicious applications
+        can use this to confuse other applications that download
+        files.</string>
+    <string name="permlab_downloadManager">Access download manager.</string>
+        <string name="permdesc_downloadManagerAdvanced">Allows the application to
+        access the download manager\'s advanced functions.
+        Malicious applications can use this to disrupt downloads and access
+        private information.</string>
+
+    <string name="permlab_downloadCompletedIntent">Send download
+        notifications.</string>
+    <string name="title_activity_test_image_detail">TestImageDetail</string>
+    <string name="help_try_long_click">Long-click for advanced options</string>
+    <string name="help_try_long_click_ok">Long-click for advanced options</string>
+    <string name="error_no_storage">External Storage not available</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_menu">MenuActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_test_home">TestHome</string>
+
+</resources>

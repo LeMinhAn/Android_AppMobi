@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="2dp"
+    card_view:cardElevation="3dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/layoutImageThumbCardSuggest2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:padding="@dimen/margin_small">
+
+            <ImageView
+                android:id="@+id/ivItemImageAppManage"
+                android:layout_width="@dimen/image_card_list_width_3"
+                android:layout_height="@dimen/image_card_list_width_3"
+                android:src="@drawable/ic_item_card_test" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvItemNameAppManage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/layoutImageThumbCardSuggest2"
+            android:layout_toRightOf="@+id/layoutImageThumbCardSuggest2"
+            android:paddingTop="@dimen/margin_small"
+            android:text="New Text App name"
+            android:textColor="#000"
+            android:textSize="@dimen/text_size_medium" />
+
+        <TextView
+            android:id="@+id/tvItemAuthorAppManage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvItemNameAppManage"
+            android:layout_toRightOf="@+id/layoutImageThumbCardSuggest2"
+            android:text="Author"
+            android:textColor="@color/text_hint_color"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold|italic" />
+
+        <RelativeLayout
+            android:id="@+id/rlMenuAppManage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/margin_large"
+            android:paddingLeft="@dimen/margin_large">
+
+            <ImageView
+                android:id="@+id/ivMenuCard3"
+                android:layout_width="@dimen/button_context_menu"
+                android:layout_height="@dimen/button_context_menu"
+                android:padding="@dimen/margin_small"
+                android:src="@drawable/ic_menu_card" />
+        </RelativeLayout>
+
+        <vn.appsmobi.ui.FullActionButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_small"
+            android:layout_toRightOf="@+id/layoutImageThumbCardSuggest2"
+            android:layout_alignBottom="@+id/layoutImageThumbCardSuggest2"></vn.appsmobi.ui.FullActionButton>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/layoutRating"
+        android:background="@drawable/bg_tt_view"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="4"
+            android:gravity="bottom|center_horizontal"
+            android:text="android"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="#FFF" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="3">
+
+            <TextView
+                android:id="@+id/tvCountInstall"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="3"
+                android:paddingBottom="@dimen/margin_medium"
+                android:gravity="top|center_horizontal"
+                android:text="4.4"
+                android:textSize="@dimen/text_size_large"
+                android:textColor="#FFF"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content">
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    style="@style/RatingBar.ReadOnly"
+                    android:padding="@dimen/margin_small"
+                    android:background="#FFF"
+                    android:rating="4"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rbDetail" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/view_rating"
+        android:textColor="#000"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/margin_medium" />
+
+</LinearLayout>

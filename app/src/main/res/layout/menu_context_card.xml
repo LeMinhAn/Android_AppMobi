@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="@dimen/margin_small"
+    android:background="@drawable/bg_item_card_menu_shadow_radius"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_medium"
+        android:id="@+id/tvMenuItemInstall"
+        android:textSize="@dimen/text_size_medium"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/menu_item_card_install"
+        android:textColor="#000"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:text="@string/menu_item_card_add_to_list"
+        android:padding="@dimen/margin_medium"
+        android:textSize="@dimen/text_size_medium"
+        android:id="@+id/tvMenuItemAddToList"
+        android:layout_below="@+id/tvMenuItemInstall"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_medium"
+        android:textColor="#000"
+        android:text="@string/menu_item_card_hate"
+        android:id="@+id/tvMenuItemHate"
+        android:textSize="@dimen/text_size_medium"
+        android:layout_below="@+id/tvMenuItemAddToList"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

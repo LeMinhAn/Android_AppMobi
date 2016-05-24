@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvDialogTitle"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1.0"
+            android:gravity="center_vertical"
+            android:text="Thông báo" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/text_hint_color" />
+    </LinearLayout>
+
+    <vn.appsmobi.ui.BoundedLinearLayout xmlns:mobivip="http://schemas.android.com/apk/res/vn.appsmobi"
+        android:id="@+id/contaner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        mobivip:bounded_height="0dp">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <WebView
+                android:id="@+id/wv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </vn.appsmobi.ui.BoundedLinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/dialogButtonPanel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btnDialogCancel"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/button_height_medium"
+                    android:layout_weight="1"
+                    android:background="@drawable/textview_gray_action"
+                    android:gravity="center"
+                    android:text="@string/cancel"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/btnDialogOk"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/button_height_medium"
+                    android:background="@drawable/textview_gray_action"
+                    android:gravity="center"
+                    android:text="@string/ok"
+                    android:textColor="#000"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rlProcessAppManage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="#CC000000"
+        android:paddingBottom="@dimen/margin_small"
+        android:visibility="gone">
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/cpcProcessAppManage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:background_progressbar_color="@color/text_hint_color"
+            app:background_progressbar_width="2dp"
+            app:progressbar_color="@color/main_color_click"
+            app:progressbar_width="4dp" />
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:id="@+id/tvItemPercentProcessAppManage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:textColor="#FFF"
+                android:textSize="@dimen/text_size_small" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rlSetting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/rlProcessAppManage"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:paddingLeft="@dimen/margin_small"
+        android:paddingRight="@dimen/margin_small">
+
+        <TextView
+            android:id="@+id/tvNameCardSuggest2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="top"
+            android:text="New Text"
+            android:maxLines="1"
+            android:textColor="#000"
+            android:textSize="@dimen/text_size_large" />
+
+        <TextView
+            android:id="@+id/tvItemStatusAppManage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvNameCardSuggest2"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:gravity="top"
+            android:text="Cài đặt"
+            android:textColor="@color/main_color"
+
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="bold" />
+
+        <vn.appsmobi.ui.CustomRatingBarListItem
+            android:id="@+id/rbRatingCardSuggest3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

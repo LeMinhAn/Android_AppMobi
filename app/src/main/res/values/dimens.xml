@@ -1,0 +1,81 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="tab_height">40dp</dimen>
+
+    <!-- dimens for text size -->
+    <dimen name="text_size_small">11sp</dimen>
+    <dimen name="text_size_medium">12sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_xlarge">24sp</dimen>
+    <!-- end dimens for text size  -->
+    <!-- dimens for button-->
+    <dimen name="button_height_medium">35dp</dimen>
+    <dimen name="button_height_small">30dp</dimen>
+    <dimen name="button_width_small">150dp</dimen>
+    <dimen name="button_context_menu">25dp</dimen>
+    <!-- end dimens for text size  -->
+
+    <!-- dimens for margin-->
+    <dimen name="margin_small">5dp</dimen>
+    <dimen name="margin_medium">10dp</dimen>
+    <dimen name="margin_large">15dp</dimen>
+    <dimen name="margin_xlarge">20dp</dimen>
+    <!-- end dimens margin  -->
+    <!-- dimens for radius-->
+    <dimen name="radius_small">2dp</dimen>
+    <dimen name="radius_medium">5dp</dimen>
+    <!-- end dimens radius  -->
+
+
+    <!-- dimens for element -->
+
+    <!-- end dimens for element -->
+    <!-- dimens for home activity -->
+    <!-- dimens for menu -->
+    <dimen name="image_menu_size">75dp</dimen>
+    <!-- end dimens for menu -->
+    <!-- dimens for only one card list  -->
+    <dimen name="card_suggest_padding">5dp</dimen>
+    <dimen name="image_card_list_height">160dp</dimen>
+    <dimen name="image_card_list_height_2">150dp</dimen>
+    <dimen name="image_card_list_width_2">150dp</dimen>
+    <dimen name="image_card_list_height_3">100dp</dimen>
+    <dimen name="image_card_list_width_3">100dp</dimen>
+    <dimen name="ratingbar_readonly_size">12dip</dimen>
+    <!-- end for only one card list -->
+
+
+    <!-- end dimens for home activity -->
+    <!-- _____________dimens for loading views______________-->
+    <dimen name="keyline_1">16dp</dimen>
+    <dimen name="keyline_2">5dp</dimen>
+    <dimen name="icon_size_20dp">20dp</dimen>
+    <!-- dialog -->
+    <dimen name="list_item_height_double_line">80.0dip</dimen>
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+
+    <!-- fab sizes -->
+    <dimen name="fab_small">40dp</dimen>
+    <dimen name="fab_normal">56dp</dimen>
+    <dimen name="fab_progress">72dp</dimen>
+
+    <!-- fab specific margins -->
+    <dimen name="fab_small_margin_right">24dp</dimen>
+    <dimen name="fab_small_margin_top">-20dp</dimen>
+    <dimen name="fab_normal_margin_right">16dp</dimen>
+    <dimen name="fab_normal_margin_top">-28dp</dimen>
+    <dimen name="fab_progress_margin_right">8dp</dimen>
+    <dimen name="fab_progress_margin_top">-36dp</dimen>
+
+    <!-- Toolbar Padding -->
+    <dimen name="tool_bar_top_padding">0dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+</resources>

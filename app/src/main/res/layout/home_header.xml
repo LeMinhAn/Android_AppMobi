@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <GridView
+        android:id="@+id/gvMenu"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/header"
+        android:numColumns="3"
+        android:paddingRight="@dimen/margin_medium"
+        android:paddingLeft="@dimen/margin_medium"
+        android:scaleType="centerCrop" />
+</FrameLayout>

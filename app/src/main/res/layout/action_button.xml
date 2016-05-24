@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/rlSetting">
+
+        <TextView
+            android:id="@+id/tvItemStatusAppManage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:text="Cài đặt"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="bold" />
+
+        <vn.appsmobi.ui.CustomRatingBarListItem
+            android:layout_width="60dp"
+            android:focusable="false"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:isIndicator="false"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"
+            android:id="@+id/rbRatingCardSuggest3" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlProcessAppManage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:visibility="visible">
+
+        <ProgressBar
+            android:id="@+id/pbProcessAppManage"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_medium"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/ivStopProcessAppManager" />
+
+        <ImageView
+            android:id="@+id/ivStopProcessAppManager"
+            android:layout_width="@dimen/button_height_medium"
+            android:layout_height="@dimen/button_height_medium"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"
+            android:padding="@dimen/margin_medium"
+            android:src="@drawable/ic_delete" />
+
+        <TextView
+            android:id="@+id/tvItemProcessAppManage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/pbProcessAppManage"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:paddingBottom="@dimen/margin_small"
+            android:text="New Text"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvItemPercentProcessAppManage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/pbProcessAppManage"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/ivStopProcessAppManager"
+            android:paddingBottom="@dimen/margin_small"
+            android:text="New Text"
+            android:textSize="@dimen/text_size_medium" />
+    </RelativeLayout>
+
+</RelativeLayout>

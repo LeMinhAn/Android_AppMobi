@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="vn.appsmobi.activity.ImageDetailActivity"
+    tools:showIn="@layout/activity_image_detail">
+
+    <vn.appsmobi.ui.TouchImageView
+        android:id="@+id/ivImageDetailImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:scaleType="fitXY"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+        android:id="@+id/cpcPlayDetailImage"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:background_progressbar_color="#07FFFFFF"
+        app:progressbar_color="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/ivPlayDetailImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:src="@drawable/ic_play_circle" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bottom_bar_color">
+
+        <TextView
+            android:id="@+id/tvGetImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/margin_medium"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:text="@string/get"
+            android:textColor="@color/text_hint_color"
+            android:textSize="@dimen/text_size_large" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivLikeImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_medium"
+                android:padding="@dimen/margin_medium"
+                android:src="@drawable/ic_share_grey600_48dp" />
+
+            <ImageView
+                android:id="@+id/ivShareImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_medium"
+                android:padding="@dimen/margin_medium"
+                android:src="@drawable/ic_share_grey600_48dp" />
+
+            <ImageView
+                android:id="@+id/ivInfoImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_medium"
+                android:padding="@dimen/margin_medium"
+                android:src="@drawable/ic_share_grey600_48dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <vn.appsmobi.ui.EmptyLoadingView
+        android:id="@+id/appDetailLoading"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:gravity="center"></vn.appsmobi.ui.EmptyLoadingView>
+
+</RelativeLayout>

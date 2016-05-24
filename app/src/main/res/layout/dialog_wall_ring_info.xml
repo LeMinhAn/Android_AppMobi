@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="@dimen/margin_medium"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Titles"
+        android:textSize="@dimen/text_size_large"
+        android:textColor="#000"
+        android:id="@+id/tbTitleDialogInfo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name :"
+        android:id="@+id/tvLayoutNameInfo"
+        android:layout_below="@+id/tbTitleDialogInfo"
+        android:layout_alignLeft="@+id/tbTitleDialogInfo"
+        android:padding="@dimen/margin_medium" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name of this wallpaper"
+        android:id="@+id/tvNameInfo"
+        android:layout_below="@+id/tbTitleDialogInfo"
+        android:layout_toRightOf="@+id/tvLayoutNameInfo"
+        android:padding="@dimen/margin_medium" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name :"
+        android:id="@+id/tvLayoutDescriptionInfo"
+        android:layout_below="@+id/tvLayoutNameInfo"
+        android:layout_alignLeft="@+id/tbTitleDialogInfo"
+        android:padding="@dimen/margin_medium" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name of this wallpaper"
+        android:id="@+id/tvDescriptionInfo"
+        android:layout_below="@+id/tvNameInfo"
+        android:layout_toRightOf="@+id/tvLayoutNameInfo"
+        android:padding="@dimen/margin_medium" />
+</RelativeLayout>
