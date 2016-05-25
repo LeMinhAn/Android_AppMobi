@@ -65,6 +65,10 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         final RecyclerView.ViewHolder viewHolder;
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         switch (viewType) {
+            //HORIZONTAL_CARD_ONE hiện không có trong HomeFragment. Home Fragment hiện chỉ có BIG CARD, HORIZONTAL_CARD, VERTICAL_CARD
+            //BIG_CARD LÀ CÁI ĐẦU TIÊN
+            //HORIZONTAL_CARD GỒM: MORE, NEW PAPER, NEW MUSIC
+            //VERTICAL_CARD GỒM: APP THIẾU NHI, GAME MỚI
             //Dựa vào CardItem.card_type mà quy định cách hiển thị cho từng loại card
             //Giá trị trả về là số
             //if card_type = 0 thì đó là BIG_CARD
@@ -87,12 +91,12 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 viewHolder = new ViewHolderListVerticalCard(inflater.inflate(R.layout.item_list_vertical_card, parent, false));
                 break;
             //if card_type = 5 thì đó là HORIZONTAL_CARD_ONE
-            case Constants.CARD_TYPE.HORIZONTAL_CARD_ONE: // ring tone card
+            case Constants.CARD_TYPE.HORIZONTAL_CARD_ONE: // ring tone card của menu
                 viewHolder = new ViewHolderRingStone(inflater.inflate(R.layout.item_ring_stone, parent, false));
                 // cant play ringtone in home activity
                 break;
             //if card_type = 6 thì đó là IMAGE_CARD
-            case Constants.CARD_TYPE.IMAGE_CARD:  // wall paper card
+            case Constants.CARD_TYPE.IMAGE_CARD:  // wall paper card menu
                 viewHolder = new ViewHolderImage(inflater.inflate(R.layout.item_card_image, parent, false), context, Constants.SCALE_IMAGE_CARD.IMAGE_CARD);
                 break;
             //Mặc định là BIG_CARD

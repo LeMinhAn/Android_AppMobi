@@ -37,6 +37,7 @@ import vn.appsmobi.adapter.DataBidingAdapter;
 import vn.appsmobi.loader.BaseResult;
 import vn.appsmobi.loader.CardLoader;
 import vn.appsmobi.model.CardItem;
+import vn.appsmobi.model.DataCardItem;
 import vn.appsmobi.model.RingToneItem;
 import vn.appsmobi.ui.EmptyLoadingView;
 import vn.appsmobi.ui.HidingScrollListener;
@@ -44,6 +45,7 @@ import vn.appsmobi.ui.Refreshable;
 import vn.appsmobi.ui.ViewHolderRingStone;
 import vn.appsmobi.utils.Constants;
 import vn.appsmobi.utils.ToastUtil;
+import vn.appsmobi.utils.Utils;
 
 import static vn.appsmobi.utils.UIUtils.calculateActionBarSize;
 
@@ -401,25 +403,31 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
 
     @Override
     public void onClick(View v, int position) throws JSONException {
+        //Điều kiện khi click vào từng item trong nổi bật, top cài đặt, mới nhất
+        //
 
         if (cardItems.get(position).getCard_type() != Constants.CARD_TYPE.HORIZONTAL_CARD && cardItems.get(position).getCard_type() != Constants.CARD_TYPE.TEXT_CARD) {
             /*
-            DataCardItem card = new DataCardItem();
-            card.valueOf(cardItems.get(position).getCard_data().getJSONObject(0));
-            Utils.EventClick.CardClick(getActivity(),card);
-            */
-            Intent intent = new Intent(getActivity(), ImageDetailActivity.class);
-            // Setup the transition to the detail activity
-            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), view.findViewById(R.id.ivImageWallPaper), "cover");
-            startActivity(intent, options.toBundle());
-
+            ***
+             */
+            if(card_data_type== Constants.CARD_TYPE.IMAGE_CARD){
+                Intent intent = new Intent(getActivity(), ImageDetailActivity.class);
+                // Setup the transition to the detail activity
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), view.findViewById(R.id.ivImageWallPaper), "cover");
+                startActivity(intent, options.toBundle());
+            }else {
+                DataCardItem card = new DataCardItem();
+                card.valueOf(cardItems.get(position).getCard_data().getJSONObject(0));
+                Utils.EventClick.CardClick(getActivity(),card);
+            }
         }
 
-
+        /*
         Intent intent = new Intent(getActivity(), ImageDetailActivity.class);
         // Setup the transition to the detail activity
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), view.findViewById(R.id.ivImageWallPaper), "cover");
         startActivity(intent, options.toBundle());
+        */
     }
 
     @Override

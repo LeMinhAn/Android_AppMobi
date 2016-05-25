@@ -112,7 +112,7 @@ public class HomeActivity extends AppCompatActivity {
                 .withHeaderBackground(R.drawable.header)
                 //thêm một số trường cho khung account
                 .addProfiles(
-                        new ProfileDrawerItem().withName("Mike Penz").withEmail("mikepenz@gmail.com").withIcon(getResources().getDrawable(R.drawable.ic_person_black_48dp))
+                        new ProfileDrawerItem().withName("Lê Minh Ân").withEmail("leminhan.cst@gmail.com").withIcon(getResources().getDrawable(R.drawable.icon_wallpaper))
                 )
                 //thay đổi account
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {

@@ -49,6 +49,9 @@ public class ViewHolderHorizontalCard extends RecyclerView.ViewHolder {
                 for (int i = 0; i < cardItem.getCard_data().length(); i++) {
                     horizontalRowView = new HorizontalRowView(context);
                     horizontalRowView.setValue(context, cardItem.getCard_data().getJSONObject(i), cardItem.getCard_data_type());
+                    /**
+                     *
+                     */
                     getHlvRowItemCardSuggest2().addView(horizontalRowView.getRootView());
                 }
                 break;

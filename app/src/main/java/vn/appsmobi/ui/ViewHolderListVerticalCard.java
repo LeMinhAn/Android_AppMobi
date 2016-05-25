@@ -71,6 +71,9 @@ public class ViewHolderListVerticalCard extends RecyclerView.ViewHolder {
                 }
             }
         });
+
+
+
         UIUtils.setListViewHeightBasedOnChildren(getLVListVerticalCard());
         getTvTitleListVerticalCard().setText(cardItem.getCard_title());
         getBtReadMoreListVerticalCard().setOnClickListener(new View.OnClickListener() {
