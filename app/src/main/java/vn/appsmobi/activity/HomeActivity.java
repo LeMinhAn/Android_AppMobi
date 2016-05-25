@@ -46,7 +46,7 @@ import vn.appsmobi.utils.LogUtil;
 public class HomeActivity extends AppCompatActivity {
 
     // View
-    private Toolbar myToolbar;
+    public Toolbar myToolbar;
     private AccountHeader headerResult;
     private SearchView searchView;
     FrameLayout flMainContainer;

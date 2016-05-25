@@ -1,56 +1,44 @@
 package vn.appsmobi.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
-import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 import com.nineoldandroids.view.ViewHelper;
-
-import org.json.JSONException;
 
 import java.util.ArrayList;
 
 import vn.appsmobi.R;
-import vn.appsmobi.activity.ListCardActivity;
+import vn.appsmobi.activity.HomeActivity;
 import vn.appsmobi.adapter.AdapterHomeMenu;
-import vn.appsmobi.adapter.DataBidingAdapter;
 import vn.appsmobi.adapter.HomeAdapter;
 import vn.appsmobi.loader.BaseResult;
 import vn.appsmobi.loader.CardLoader;
 import vn.appsmobi.model.CardItem;
 import vn.appsmobi.model.ItemMenu;
-import vn.appsmobi.model.RingToneItem;
 import vn.appsmobi.ui.EmptyLoadingView;
 import vn.appsmobi.ui.Refreshable;
-import vn.appsmobi.ui.ViewHolderRingStone;
 import vn.appsmobi.utils.Constants;
-import vn.appsmobi.utils.ToastUtil;
 
 import static vn.appsmobi.utils.UIUtils.getScreenWidth;
 import static vn.appsmobi.utils.UIUtils.setGridViewHeightBasedOnChildren;
@@ -160,10 +148,33 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
         gvFragmentHome.setOnItemClickListener(new GridView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getActivity(), ListCardActivity.class);
-                //Truyền vị trí card items đến ListCardActivity
-                intent.putExtra(Constants.Intent.CARD_DATA_TYPE, position);
-                startActivity(intent);
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                Fragment fragment = null;
+                switch (position) {
+                    case 0:
+                        fragment = new DataCardParentFragment2().newInstance(Constants.CARD_DATA_TYPE.APP);
+                        break;
+                    case 1:
+                        fragment = new DataCardParentFragment2().newInstance(Constants.CARD_DATA_TYPE.GAME);
+                        break;
+                    case 2:
+                        fragment = new DataCardParentFragment2().newInstance(Constants.CARD_DATA_TYPE.BOOK);
+                        break;
+                    case 3:
+                        fragment = new DataCardParentFragment2().newInstance(Constants.CARD_DATA_TYPE.FILM);
+                        break;
+                    case 4:
+                        fragment = new DataCardParentFragment2().newInstance(Constants.CARD_DATA_TYPE.WALLPAPER);
+                        break;
+                    case 5:
+                        fragment = new DataCardParentFragment2().newInstance(Constants.CARD_DATA_TYPE.RINGTONE);
+                        break;
+                }
+                ((TextView)((HomeActivity)getActivity()).myToolbar.findViewById(R.id.tvToolBarTitle)).setTextColor(Color.parseColor("#FFFFFF"));
+                //Cập nhật lại fragment
+                transaction.replace(R.id.flMainContainer, fragment);
+                transaction.commit();
             }
         });
         //Gọi hàm setScrollViewCallbacks cho custom ScrollView

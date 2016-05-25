@@ -67,10 +67,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ListCardActivity"
-            android:label="@string/title_activity_app_detail"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".activity.AppDetailActivity"
             android:label="@string/title_activity_app_manage"
             android:theme="@style/AppTheme.NoActionBar" />
