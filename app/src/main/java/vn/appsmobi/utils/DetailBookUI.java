@@ -65,6 +65,7 @@ public class DetailBookUI extends DetailActivityUI {
     ArrayList<String> getSlideImage(DataCardItem dataCardItem) {
         return null;
     }
+
     //Set kích thước cho image trong detail book
     @Override
     LinearLayout.LayoutParams getLayoutParamsIcon() {

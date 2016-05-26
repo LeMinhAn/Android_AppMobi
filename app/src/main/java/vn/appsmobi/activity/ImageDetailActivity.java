@@ -49,7 +49,6 @@ import vn.appsmobi.model.DataCardItem;
 import vn.appsmobi.utils.Constants;
 import vn.appsmobi.wallsplash.CustomAnimatorListener;
 import vn.appsmobi.wallsplash.CustomTransitionListener;
-import vn.appsmobi.wallsplash.Image;
 import vn.appsmobi.wallsplash.PaletteTransformation;
 import vn.appsmobi.wallsplash.Utils;
 

@@ -2,10 +2,7 @@ package vn.appsmobi.ui;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -24,8 +21,6 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import org.json.JSONObject;
 
 import vn.appsmobi.R;
-import vn.appsmobi.activity.ImageDetailActivity;
-import vn.appsmobi.activity.RingToneDetailActivity;
 import vn.appsmobi.model.DataCardItem;
 import vn.appsmobi.utils.Constants;
 import vn.appsmobi.utils.InstallChecker;

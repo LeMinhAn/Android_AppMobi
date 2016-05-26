@@ -85,6 +85,7 @@ public class EmptyLoadingView extends LinearLayout implements ProgressNotifiable
         showView(this);
         hideView(mDataLoadingView);
     }
+
     //Ngừng view progress
     public void stopLoading(boolean hasData, boolean hasNext) {
         if (!hasNext) {
@@ -103,6 +104,7 @@ public class EmptyLoadingView extends LinearLayout implements ProgressNotifiable
     public void stopLoading(boolean hasData, boolean hasNext, int errorCode) {
 
     }
+
     //Hiện view progress
     private void showView(View view) {
         if (view == null) {
@@ -113,6 +115,7 @@ public class EmptyLoadingView extends LinearLayout implements ProgressNotifiable
             view.setVisibility(View.VISIBLE);
         }
     }
+
     //Ẩn view progress
     private void hideView(View view) {
         if (view == null) {

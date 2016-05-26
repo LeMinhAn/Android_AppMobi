@@ -121,7 +121,7 @@ public class GCMReceiver {
     public void runActionUpdate(final boolean isNotify, final Activity mActivity) {
         // download and install apk file that provided by the key "Constant.INTENT_EXTRA_NOTIFICATION_URL"
         /*
-		UpdateTask task = new UpdateTask(mContext,"",isNotify) {
+        UpdateTask task = new UpdateTask(mContext,"",isNotify) {
 
 			@Override
 			public void onUpdateComplete(JSONObject responeObject) {

@@ -2,7 +2,6 @@ package vn.appsmobi.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +44,7 @@ public class DataBidingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public interface RecyclerAdapterMethods {
         void configurePlayRingTone(final ViewHolderRingStone viewHolder, final int position);
+
         void changeViewPlayRingTone(ViewHolderRingStone vh, int position);
     }
 
@@ -90,7 +90,7 @@ public class DataBidingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             public void onClick(View v) {
                 try {
                     //Điều kiện null
-                    if(mOnClickEvent!=null){
+                    if (mOnClickEvent != null) {
                         mOnClickEvent.onClick(v, viewHolder.getAdapterPosition());
                     }
                 } catch (JSONException e) {

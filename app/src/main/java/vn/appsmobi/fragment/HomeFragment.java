@@ -116,7 +116,6 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
     }
 
 
-
     // ___________INIT VALUES_____________ //
     public void initValues() {
         //set kích thước của từng icon hiển thi trong gridview
@@ -171,7 +170,7 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
                         fragment = new DataCardParentFragment2().newInstance(Constants.CARD_DATA_TYPE.RINGTONE);
                         break;
                 }
-                ((TextView)((HomeActivity)getActivity()).myToolbar.findViewById(R.id.tvToolBarTitle)).setTextColor(Color.parseColor("#FFFFFF"));
+                ((TextView) ((HomeActivity) getActivity()).myToolbar.findViewById(R.id.tvToolBarTitle)).setTextColor(Color.parseColor("#FFFFFF"));
                 //Cập nhật lại fragment
                 transaction.replace(R.id.flMainContainer, fragment);
                 transaction.commit();
@@ -204,7 +203,7 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
     public Loader<BaseResult> onCreateLoader(int id, Bundle args) {
         cardLoader = new CardLoader(getActivity());
         cardLoader.setProgressNotifiable(clFragmentHome);
-       // cardLoader.setRequestType(0);
+        // cardLoader.setRequestType(0);
         return cardLoader;
     }
 

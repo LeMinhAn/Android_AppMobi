@@ -68,6 +68,7 @@ public class DetailMovieUI extends DetailActivityUI {
     ArrayList<String> getSlideImage(DataCardItem dataCardItem) {
         return null;
     }
+
     //Set kích thước cho image trong detail film
     @Override
     LinearLayout.LayoutParams getLayoutParamsIcon() {

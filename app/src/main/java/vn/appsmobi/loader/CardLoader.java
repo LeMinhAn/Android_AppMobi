@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import vn.appsmobi.model.CardItem;
 import vn.appsmobi.requests.Request;
 import vn.appsmobi.utils.Constants;
-import vn.appsmobi.utils.LogUtil;
-import vn.appsmobi.utils.Utils;
 
 public class CardLoader extends BaseLoader {
 
@@ -77,6 +75,7 @@ public class CardLoader extends BaseLoader {
     //Update Task
     private class CardUpdateTask extends BaseLoader.UpdateTask {
         protected boolean isAppend;
+
         public CardUpdateTask() {
             if (page == 0) {
                 //comment
@@ -89,11 +88,11 @@ public class CardLoader extends BaseLoader {
         @Override
         protected Request getRequest() {//1 param: merchantId -> get list comment ;;;;; 2 param: userId -> get List comment
             if (getRequestType() == 1) {
-                  return new Request(Constants.getListCardForListActivity(getCardDataType(), getResType()) + "/page/" + page);
-            } else if(getRequestType() == 2){
-                  return new Request(Constants.getListCardForListActivity(getCardDataType(),1) + "/page/" + page);
-            }else {
-                 return new Request(Constants.getAllForHomeActivity() + "/page/" + page);
+                return new Request(Constants.getListCardForListActivity(getCardDataType(), getResType()) + "/page/" + page);
+            } else if (getRequestType() == 2) {
+                return new Request(Constants.getListCardForListActivity(getCardDataType(), 1) + "/page/" + page);
+            } else {
+                return new Request(Constants.getAllForHomeActivity() + "/page/" + page);
             }
 
         }

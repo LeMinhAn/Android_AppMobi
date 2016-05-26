@@ -654,14 +654,11 @@ public class Utils {
 
     public static class EventClick {
         public static void CardClick(Context context, DataCardItem dataCardItem) {
-            Log.e("ViewHDRHC_status", String.valueOf(dataCardItem.getCard_status()));
+
             Intent intent = new Intent(context, AppDetailActivity.class);
             Bundle bundle = new Bundle();
-
-
-
+            Log.e("tag", "-------------------");
             bundle.putParcelable(Constants.Intent.CARD, dataCardItem);
-
 
             bundle.putInt(Constants.Intent.CARD_DATA_TYPE, dataCardItem.getData_type());
             intent.putExtras(bundle);

@@ -5,15 +5,13 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
@@ -31,12 +29,9 @@ import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 import org.json.JSONException;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import vn.appsmobi.R;
 import vn.appsmobi.adapter.DataBidingAdapter;
-import vn.appsmobi.adapter.MoreAdapter;
-import vn.appsmobi.adapter.ParallaxRecyclerAdapter;
 import vn.appsmobi.loader.BaseResult;
 import vn.appsmobi.loader.CardLoader;
 import vn.appsmobi.model.CardItem;
@@ -48,10 +43,11 @@ import vn.appsmobi.ui.Refreshable;
 import vn.appsmobi.ui.ViewHolderRingStone;
 import vn.appsmobi.utils.Constants;
 import vn.appsmobi.utils.ToastUtil;
+import vn.appsmobi.utils.Utils;
 
 import static vn.appsmobi.utils.UIUtils.calculateActionBarSize;
 
-public class ReadMoreActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<BaseResult>, Refreshable {
+public class ReadMoreActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<BaseResult>, Refreshable, DataBidingAdapter.OnClickEvent {
 
     // init value
     ArrayList<CardItem> cardItems;
@@ -91,19 +87,20 @@ public class ReadMoreActivity extends AppCompatActivity implements LoaderManager
         initActions();
         getSupportLoaderManager().initLoader(0, null, this);
     }
+
     public void getData() {
         // Image loader
         // get image from drawable folder
         //IMAGE_PLAY = "drawable://" + R.drawable.ic_play_circle;
         //IMAGE_PAUSE ="drawable://" +  R.drawable.ic_pause_ring_stone;
-        card_data_type = getIntent().getIntExtra(Constants.Intent.CARD_DATA_TYPE,0);
+        card_data_type = getIntent().getIntExtra(Constants.Intent.CARD_DATA_TYPE, 0);
         IMAGE_PLAY = getResources().getDrawable(R.drawable.ic_play_circle);
         IMAGE_PAUSE = getResources().getDrawable(R.drawable.ic_pause_ring_stone);
         cardItems = new ArrayList<>();
     }
 
     public void initView() {
-        cardLoadingFragment = (EmptyLoadingView)findViewById(R.id.cardLoadingFragment);
+        cardLoadingFragment = (EmptyLoadingView) findViewById(R.id.cardLoadingFragment);
         cardLoadingFragment.setRefreshable(this);
         cardLoadingFragment.setNoNewDataCallback(new EmptyLoadingView.NoNewDataCallback() {
             @Override
@@ -113,7 +110,7 @@ public class ReadMoreActivity extends AppCompatActivity implements LoaderManager
             }
         });
         toolbarContainer = (LinearLayout) findViewById(R.id.llActionBar);
-        rvDataCardList = (ObservableRecyclerView)findViewById(R.id.rvDataCardList);
+        rvDataCardList = (ObservableRecyclerView) findViewById(R.id.rvDataCardList);
         // set layout manager for recycle view
 
         if (card_data_type == Constants.CARD_DATA_TYPE.WALLPAPER) {
@@ -189,6 +186,28 @@ public class ReadMoreActivity extends AppCompatActivity implements LoaderManager
         }
 
     };
+
+    @Override
+    public void onClick(View v, int position) throws JSONException {
+        if (cardItems.get(position).getCard_type() != Constants.CARD_TYPE.HORIZONTAL_CARD && cardItems.get(position).getCard_type() != Constants.CARD_TYPE.TEXT_CARD) {
+            /*
+            ***
+             */
+            if (card_data_type == Constants.CARD_TYPE.IMAGE_CARD) {
+                Intent intent = new Intent(mContext, ImageDetailActivity.class);
+                // Setup the transition to the detail activity
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, findViewById(R.id.ivImageWallPaper), "cover");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    startActivity(intent, options.toBundle());
+                }
+            } else {
+                DataCardItem card = new DataCardItem();
+                card.valueOf(cardItems.get(position).getCard_data().getJSONObject(0));
+                Utils.EventClick.CardClick(mContext, card);
+            }
+        }
+
+    }
 
     private class PlaybackUpdater implements Runnable {
         public CircularProgressBar mBarToUpdate = null;
@@ -304,7 +323,7 @@ public class ReadMoreActivity extends AppCompatActivity implements LoaderManager
         });
 
         rvDataCardList.setAdapter(dataBidingAdapter);
-//        dataBidingAdapter.setOnClickEvent(mContext);
+        dataBidingAdapter.setOnClickEvent(this);
         rvDataCardList.setOnScrollListener(mOnScrollListener);
         //rvDataCardList.setItemViewCacheSize(4);
         // rvDataCardList.setScrollViewCallbacks((ObservableScrollViewCallbacks) getActivity());

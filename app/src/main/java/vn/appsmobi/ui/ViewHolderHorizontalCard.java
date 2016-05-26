@@ -85,7 +85,7 @@ public class ViewHolderHorizontalCard extends RecyclerView.ViewHolder {
             public void onClick(View v) {
                 Intent intent = new Intent(context, ReadMoreActivity.class);
                 intent.putExtra(Constants.Intent.READ_MORE_TYPE, 0);
-                intent.putExtra(Constants.Intent.CARD_DATA_TYPE,cardDataType);
+                intent.putExtra(Constants.Intent.CARD_DATA_TYPE, cardDataType);
                 context.startActivity(intent);
             }
         });

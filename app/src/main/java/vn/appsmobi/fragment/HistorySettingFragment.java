@@ -8,12 +8,10 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
@@ -42,12 +40,13 @@ public class HistorySettingFragment extends Fragment {
     List<AppManageSectionAdapter.Section> sections;
     AppManageAdapter appManageAdapter;
     AppManageSectionAdapter appManageSectionAdapter;
-    Context context ;
+    Context context;
     // image loader library
     DisplayImageOptions options;
     // init view
     RecyclerView rvAppManage;
     int sectionOfset = 0;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +67,7 @@ public class HistorySettingFragment extends Fragment {
         new LoadApplications().execute();
         return view;
     }
+
     public void getValues() {
         // packageManager
         // Image loader
@@ -109,6 +109,7 @@ public class HistorySettingFragment extends Fragment {
         });
         builder.show();
     }
+
     // sync task for load data
     private class LoadApplications extends AsyncTask<Void, Void, Void> {
         LoadToast lt = new LoadToast(getActivity());

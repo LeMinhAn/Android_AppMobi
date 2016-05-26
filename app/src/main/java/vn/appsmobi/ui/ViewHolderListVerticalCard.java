@@ -3,7 +3,6 @@ package vn.appsmobi.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -71,7 +70,6 @@ public class ViewHolderListVerticalCard extends RecyclerView.ViewHolder {
                 }
             }
         });
-
 
 
         UIUtils.setListViewHeightBasedOnChildren(getLVListVerticalCard());

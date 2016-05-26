@@ -401,6 +401,7 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
 
     }
 
+
     @Override
     public void onClick(View v, int position) throws JSONException {
         //Điều kiện khi click vào từng item trong nổi bật, top cài đặt, mới nhất
@@ -410,15 +411,15 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
             /*
             ***
              */
-            if(card_data_type== Constants.CARD_TYPE.IMAGE_CARD){
+            if (card_data_type == Constants.CARD_TYPE.IMAGE_CARD) {
                 Intent intent = new Intent(getActivity(), ImageDetailActivity.class);
                 // Setup the transition to the detail activity
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), view.findViewById(R.id.ivImageWallPaper), "cover");
                 startActivity(intent, options.toBundle());
-            }else {
+            } else {
                 DataCardItem card = new DataCardItem();
                 card.valueOf(cardItems.get(position).getCard_data().getJSONObject(0));
-                Utils.EventClick.CardClick(getActivity(),card);
+                Utils.EventClick.CardClick(getActivity(), card);
             }
         }
 
