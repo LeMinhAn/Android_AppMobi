@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="vn.appsmobi.activity.SeeMoreActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarSeeMoreActivity"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:padding="@dimen/margin_small"
+            android:background="@color/main_color"
+            android:titleTextColor="#FFFFFF"
+            app:theme="@style/AboutLibrariesTheme.Light.DarkToolbar" />
+
+        <TextView
+            android:id="@+id/tv_full_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@+id/toolbarSeeMoreActivity"
+            android:padding="@dimen/margin_medium" />
+
+    </RelativeLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

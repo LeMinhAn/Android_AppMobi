@@ -42,7 +42,7 @@ import vn.appsmobi.fragment.HomeFragment;
 import vn.appsmobi.fragment.SettingFragment;
 import vn.appsmobi.utils.Constants;
 import vn.appsmobi.utils.LogUtil;
-
+//Sử dụng để hiện thị menu của app, và sự kiện trỏ đến từng fragment hiện có trong menu
 public class HomeActivity extends AppCompatActivity {
 
     // View
@@ -112,6 +112,7 @@ public class HomeActivity extends AppCompatActivity {
                 .withHeaderBackground(R.drawable.header)
                 //thêm một số trường cho khung account
                 .addProfiles(
+                        //Edit Profile
                         new ProfileDrawerItem().withName("Lê Minh Ân").withEmail("leminhan.cst@gmail.com").withIcon(getResources().getDrawable(R.drawable.icon_wallpaper))
                 )
                 //thay đổi account
@@ -123,7 +124,6 @@ public class HomeActivity extends AppCompatActivity {
                 })
                 .build();
     }
-
     //__________INIT MENU DRAWER___________//
     //Tạo một số items cho thanh menu
     public void initMenuDrawer(Bundle savedInstanceState) {
@@ -220,6 +220,7 @@ public class HomeActivity extends AppCompatActivity {
                             case 6:
                                 //vị trí thứ 6 sẽ trỏ đến fragment App
                                 fragment = new DataCardParentFragment2().newInstance(Constants.CARD_DATA_TYPE.FILM);
+                                //Ép kiểu
                                 ((TextView) myToolbar.findViewById(R.id.tvToolBarTitle)).setTextColor(Color.parseColor("#FFFFFF"));
                                 break;
                             case 7:

@@ -48,7 +48,7 @@ import vn.appsmobi.utils.ToastUtil;
 import vn.appsmobi.utils.Utils;
 
 import static vn.appsmobi.utils.UIUtils.calculateActionBarSize;
-
+//Bắt sự kiện trong từng items trong fragment tương ứng
 public class DataCardListFragment extends Fragment implements LoaderManager.LoaderCallbacks<BaseResult>, Refreshable, DataBidingAdapter.OnClickEvent {
     // init value
     ArrayList<CardItem> cardItems;

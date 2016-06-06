@@ -16,6 +16,7 @@ import vn.appsmobi.ui.ViewHolderVerticalCard;
 /**
  * Created by tobrother272 on 12/26/2015.
  */
+//Set adapter cho riêng app, game, book, film
 public class AdapterRowVerticalCardSuggest extends BaseAdapter {
     private Context context;
     private float scaleItem;

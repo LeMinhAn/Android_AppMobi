@@ -38,6 +38,9 @@ public class ViewHolderHorizontalCard extends RecyclerView.ViewHolder {
     public void setValue(CardItem cardItem, final Context context, DisplayImageOptions options) throws JSONException {
         final int cardDataType = cardItem.getCard_data_type();
 
+
+
+        // gán gái trị cho linerlayout
         switch (cardDataType) {
             //Lấy 3 trường: icon_image, rate, name từ Data_Card_Items trong lớp HorizontalRowView
             case Constants.CARD_DATA_TYPE.APP:
@@ -78,7 +81,11 @@ public class ViewHolderHorizontalCard extends RecyclerView.ViewHolder {
                 }
                 break;
         }
+        // end
+
+
         getTvTitleHorizontalCard().setText(cardItem.getCard_title());
+
         //Sự kiện nút xem thêm
         getBtReadMoreCardSuggest2().setOnClickListener(new View.OnClickListener() {
             @Override

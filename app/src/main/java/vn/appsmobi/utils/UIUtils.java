@@ -25,6 +25,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -42,6 +43,8 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
@@ -49,6 +52,7 @@ import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -244,6 +248,7 @@ public class UIUtils {
         view.setLayoutParams(layoutParams);
     }
 
+    //Hàm set số lượt rate để hiển thị số ngôi sao lên app
     public static void setRatingSize(View view, Context context, float scale) {
         int width = (int) (getScreenWidth(context) / scale);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(width, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -411,6 +416,29 @@ public class UIUtils {
     public static int getToolbarHeight(Context context) {
         int toolbarHeight = 0;
         return toolbarHeight;
+    }
+
+    public static void showDialog(Context context, String content) {
+        new MaterialDialog.Builder(context)
+                .title("THÔNG BÁO")
+                .content(content)
+                .positiveText("MỞ")
+                .negativeText("THOÁT")
+                .positiveColor(context.getResources().getColor(R.color.main_color))
+                .negativeColor(context.getResources().getColor(R.color.main_color))
+                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+
+                    }
+                })
+                .onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+
+                    }
+                })
+                .show();
     }
 
 

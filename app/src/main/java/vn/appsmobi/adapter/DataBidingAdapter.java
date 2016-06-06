@@ -25,6 +25,7 @@ import vn.appsmobi.utils.Constants;
 /**
  * Created by tobrother on 26/01/2016.
  */
+//Set adapter cho fragment trong menu gồm: app, game, film,....
 public class DataBidingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     ArrayList<CardItem> cardItems;
     private DisplayImageOptions options;

@@ -120,7 +120,7 @@ public abstract class ActionArea extends LinearLayout {
     }
 
     public void rebind(DataCardItem appInfo, boolean isActionable) {
-
+        //Neu co du lieu thi thuc hien ham removeProgressListener
         if (this.mAppInfo != null) {
             DownloadInstallManager.getManager().removeProgressListener(String.valueOf(this.mAppInfo.getId()), this.mProgressListener);
         }

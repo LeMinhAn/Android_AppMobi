@@ -17,6 +17,7 @@ import vn.appsmobi.ui.ViewHolderRowHorizontalCard;
 /**
  * Created by tobrother272 on 12/26/2015.
  */
+//Adapter của giao diện chi tiết của app và game
 public class AdapterRowHorizontalCardSuggest extends BaseAdapter {
     private Context context;
     private int cardDataType = 0;

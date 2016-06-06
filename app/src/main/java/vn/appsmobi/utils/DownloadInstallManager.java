@@ -413,6 +413,7 @@ public class DownloadInstallManager {
     public void installPackage(File apkFile) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
         if (!apkFile.exists()) throw new IllegalArgumentException();
         Uri packageURI = Uri.fromFile(apkFile);
+        //Cai dat package bang file Uri
         installPackage(packageURI);
     }
 
@@ -1185,6 +1186,7 @@ public class DownloadInstallManager {
 
             final String[] items = {"BẠN ĐÃ DOWNLOAD , BẠN CÓ MUỐN MỞ NGAY"};
             new MaterialDialog.Builder(activityContext)
+
                     .title("THÔNG BÁO")
                     .items(items)
                     .positiveText("MỞ")

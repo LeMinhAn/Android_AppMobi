@@ -44,7 +44,7 @@
                 android:id="@+id/clFragmentHome"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_centerInParent="true"
+                android:layout_below="@+id/gvFragmentHome"
                 android:visibility="gone"></vn.appsmobi.ui.EmptyLoadingView>
         </RelativeLayout>
     </com.github.ksoichiro.android.observablescrollview.ObservableScrollView>

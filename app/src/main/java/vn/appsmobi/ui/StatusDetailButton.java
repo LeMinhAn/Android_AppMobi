@@ -90,6 +90,7 @@ public class StatusDetailButton extends ActionArea {
         ivStopProcessAppManager = (ImageView) viewParent.findViewById(R.id.ivStopProcessAppManager);
         tvItemProcessAppManage = (TextView) viewParent.findViewById(R.id.tvItemProcessAppManage);
         tvItemPercentProcessAppManage = (TextView) viewParent.findViewById(R.id.tvItemPercentProcessAppManage);
+        //Add view parent vào LinearLayout (ActionArea extends LinearLayout)
         addView(viewParent);
         btOne.setOnClickListener(new OnClickListener() {
             @Override

@@ -17,6 +17,7 @@ import vn.appsmobi.ui.ViewHolderImage;
 /**
  * Created by tobrother on 27/01/2016.
  */
+//Set adapter cho riêng wallpaper
 public class SlideImageAdapter extends BaseAdapter {
 
     private JSONArray dataCardItems;

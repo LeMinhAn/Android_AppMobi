@@ -33,7 +33,8 @@ import static vn.appsmobi.utils.UIUtils.getScreenWidth;
 /**
  * Created by tobrother on 26/01/2016.
  */
-public class DetailApplicationUI extends DetailActivityUI implements ObservableScrollViewCallbacks {
+//Kế thừa từ lớp cha AppDetailActivity
+public class DetailApplicationUI extends DetailActivityUI {
     LinearLayout llCompatible, llCompatibleParent;
     TextView tvCompatible;
     ApplicationItem applicationItem;
@@ -44,6 +45,7 @@ public class DetailApplicationUI extends DetailActivityUI implements ObservableS
     public DetailApplicationUI(Activity activity, DisplayImageOptions options, ApplicationItem applicationItem) {
         super(activity, options, applicationItem);
         this.applicationItem = applicationItem;
+        svParentAppDetailActivity.pageScroll(View.FOCUS_UP);
     }
 
     @Override
@@ -82,6 +84,7 @@ public class DetailApplicationUI extends DetailActivityUI implements ObservableS
     void initCustomValue() {
         // tvCompatible.setText(applicationItem.getVersion_compatible());
         toolbarAppDetailActivity.setTitle(dataCardItem.getName());
+
         super.mBidingData = new StatusDetailButton.BidingData() {
             @Override
             public void bindInstalled(final DataCardItem appInfo) {
@@ -249,7 +252,6 @@ public class DetailApplicationUI extends DetailActivityUI implements ObservableS
         applicationItem = (ApplicationItem) dataCardItem;
         imageAdapter = new ImageAdapter(activity, applicationItem.getSlide_show(), options);
         gSlideShow.setAdapter(imageAdapter);
-
     }
 
     @Override

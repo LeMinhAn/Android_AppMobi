@@ -32,6 +32,7 @@ import static vn.appsmobi.utils.UIUtils.getScreenHeight;
 /**
  * Created by tobrother on 04/04/2016.
  */
+//Fragment của Lịch sử cài đặt
 public class HistorySettingFragment extends Fragment {
     // View
     View view;

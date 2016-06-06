@@ -22,7 +22,7 @@ import static vn.appsmobi.utils.UIUtils.setViewSize;
 /**
  * Created by tobrother272 on 12/24/2015.
  */
-//Adapter của Gridview trong HomeFragment
+//Sử dụng để hiện thị dữ liệu của gridview lên trang Home Fragment
 public class AdapterHomeMenu extends BaseAdapter {
     private Context context;
     private ArrayList<ItemMenu> item_menus;

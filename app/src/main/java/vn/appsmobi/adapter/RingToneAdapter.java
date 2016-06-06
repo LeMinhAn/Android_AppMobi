@@ -17,6 +17,7 @@ import vn.appsmobi.ui.ViewHolderRingStone;
 /**
  * Created by tobrother on 27/01/2016.
  */
+//Set adapter cho riêng Ringtone
 public class RingToneAdapter extends BaseAdapter {
     JSONArray dataCardItems;
     Context context;

@@ -46,7 +46,7 @@ import vn.appsmobi.utils.ToastUtil;
 import vn.appsmobi.utils.Utils;
 
 import static vn.appsmobi.utils.UIUtils.calculateActionBarSize;
-
+//Sử dụng để hiện thị danh sách các sản phẩm có trong 1 dnah mục cụ thể. ví dụ như: app, game, wallpaper, ringtone
 public class ReadMoreActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<BaseResult>, Refreshable, DataBidingAdapter.OnClickEvent {
 
     // init value

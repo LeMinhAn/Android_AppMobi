@@ -29,6 +29,9 @@ public class MovieItem extends DataCardItem {
         if (!jsonObject.isNull(Constants.JSON_PARSE.DURATION_TIME)) {
             this.setDuration_time((float) jsonObject.getDouble(Constants.JSON_PARSE.DURATION_TIME));
         }
+        else {
+            this.setDuration_time(0);
+        }
         if (!jsonObject.isNull(Constants.JSON_PARSE.PROMO_VIDEO)) {
             this.setPromo_video(jsonObject.getString(Constants.JSON_PARSE.PROMO_VIDEO));
         }

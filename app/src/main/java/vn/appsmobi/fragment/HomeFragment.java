@@ -46,6 +46,7 @@ import static vn.appsmobi.utils.UIUtils.setGridViewHeightBasedOnChildren;
 /**
  * Created by tobrother on 04/04/2016.
  */
+//Fragment của trang Home
 public class HomeFragment extends Fragment implements LoaderManager.LoaderCallbacks<BaseResult>, Refreshable, ObservableScrollViewCallbacks {
     // View
     View view;
@@ -108,7 +109,7 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
         clFragmentHome = (EmptyLoadingView) view.findViewById(R.id.clFragmentHome);
         svParentHomeFragment = (ObservableScrollView) view.findViewById(R.id.svParentHomeFragment);
         // recycle
-        gridLayout = new StaggeredGridLayoutManager(1, 1);
+        gridLayout = new StaggeredGridLayoutManager(1,1);
         gridLayout.setReverseLayout(false);
         rvFragmentHome.setLayoutManager(gridLayout);
         rvFragmentHome.setBackgroundColor(Color.TRANSPARENT);
@@ -244,6 +245,7 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
     @Override
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
         ViewHelper.setTranslationY(gvFragmentHome, scrollY / 2);
+
     }
 
     @Override

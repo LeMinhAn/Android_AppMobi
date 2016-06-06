@@ -12,11 +12,11 @@ import java.util.ArrayList;
 public class CardItem {
     public static String CARD_ITEM_TAG = "CARD_ITEM";
     //Trang chủ
-    private String card_title;  // More = tiltle
-    private String card_more_action; // Xem thêm = more action
-    private int card_data_type; //
-    private int card_type; // loại card
-    private JSONArray card_data;
+    private String card_title;  // là more hoặc app thiếu nhi hoặc game mới
+    private String card_more_action; // nút xem thêm
+    private int card_data_type; //thuộc loại nào: app hay game hay wallpaper
+    private int card_type; // loại card gì: bigcard, horizolcard, vertical card,...
+    private JSONArray card_data; //số lượng items trong card đó
 
     public CardItem(String card_title, int card_type) {
         this.card_title = card_title;
@@ -46,7 +46,6 @@ public class CardItem {
         if (!jsonObject.isNull("card_data")) {
             JSONArray arrayCardData = jsonObject.getJSONArray("card_data");
             itemCard.setCard_data(arrayCardData);
-
         }
         return itemCard;
     }

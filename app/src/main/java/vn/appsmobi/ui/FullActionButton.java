@@ -33,6 +33,7 @@ public class FullActionButton extends ActionArea {
     TextView tvItemProcessAppManage;
     TextView tvItemPercentProcessAppManage;
     RelativeLayout rlProcessAppManage, rlSetting;
+
     ProgressBar pbProcessAppManage;
     ImageView ivStopProcessAppManager;
     CustomRatingBarListItem rbRatingCardSuggest;
@@ -48,7 +49,10 @@ public class FullActionButton extends ActionArea {
         rlProcessAppManage = (RelativeLayout) viewParent.findViewById(R.id.rlProcessAppManage);
         rlSetting = (RelativeLayout) viewParent.findViewById(R.id.rlSetting);
         rbRatingCardSuggest = (CustomRatingBarListItem) viewParent.findViewById(R.id.rbRatingCardSuggest3);
+
+        //Set số lượt rate
         setRatingSize(rbRatingCardSuggest, context, 5);
+
         pbProcessAppManage = (ProgressBar) viewParent.findViewById(R.id.pbProcessAppManage);
         ivStopProcessAppManager = (ImageView) viewParent.findViewById(R.id.ivStopProcessAppManager);
         addView(viewParent);

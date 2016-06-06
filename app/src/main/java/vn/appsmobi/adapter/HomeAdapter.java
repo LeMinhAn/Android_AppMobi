@@ -25,6 +25,7 @@ import vn.appsmobi.utils.Constants;
 /**
  * Created by tobrother on 26/01/2016.
  */
+//Set adapter chỉ cho trang HomeFragment
 public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     ArrayList<CardItem> cardItems;
     private DisplayImageOptions options;

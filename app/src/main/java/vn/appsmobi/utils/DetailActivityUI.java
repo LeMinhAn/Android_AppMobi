@@ -1,5 +1,6 @@
 package vn.appsmobi.utils;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.Gallery;
 import android.widget.ImageView;
@@ -14,7 +16,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
+import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
 import org.json.JSONException;
@@ -25,6 +30,7 @@ import it.sephiroth.android.library.widget.HListView;
 import vn.appsmobi.R;
 import vn.appsmobi.activity.AppDetailActivity;
 import vn.appsmobi.activity.ReadMoreActivity;
+import vn.appsmobi.activity.SeeMoreActivity;
 import vn.appsmobi.adapter.AdapterRowHorizontalCardSuggest;
 import vn.appsmobi.adapter.CommentAdapter;
 import vn.appsmobi.adapter.ImageAdapter;
@@ -45,14 +51,15 @@ import static vn.appsmobi.utils.UIUtils.setRatingSize;
 /**
  * Created by tobrother on 26/01/2016.
  */
-public abstract class DetailActivityUI {
+//Giao diện chi tiết của app và game, film, book
+public abstract class DetailActivityUI implements ObservableScrollViewCallbacks {
     LinearLayout llCountDown, llRate, llTopic, llCountDownParent, llRateParent, llTopicParent, llShare, llStick, llCommentParent;
     ImageView ivPromoImage, ivIcon, ivPromoVideoPlay;
     RoundedImageView ivAvatarUser;
     Gallery gSlideShow;
     CustomRatingBarGuest rbRate;
     CustomRatingBar rbDetail;
-    TextView tvNameItem, tvAuthorItem, tvShortDescription, tvReadMoreDescription, tvNameUser, tvCountDown, tvTopic, tvRate;
+    TextView tvNameItem, tvAuthorItem, tvNameUser, tvCountDown, tvTopic, tvRate, tvShortDescription, tvReadMoreDescription;
     Button btSubmitComment, btReadMoreSuggest, btReadMoreComment;
     public StatusDetailButton btStatusDetailButton;
     ListView rvComments;
@@ -71,6 +78,8 @@ public abstract class DetailActivityUI {
     AdapterRowHorizontalCardSuggest suggestAppAdapter;
     StatusDetailButton.BidingData mBidingData;
     private Handler mHandler = new Handler();
+    ObservableScrollView svParentAppDetailActivity;
+//    ExpandableTextView expTv1;
 
     public DetailActivityUI(Activity activity, DisplayImageOptions options, DataCardItem dataCardItem) {
         this.activity = activity;
@@ -85,6 +94,15 @@ public abstract class DetailActivityUI {
 
     public void initView() {
         rootView = getLayoutView();
+
+//        expTv1 = (ExpandableTextView) rootView.findViewById(R.id.expand_text_view);
+//        expTv1.setOnExpandStateChangeListener(new ExpandableTextView.OnExpandStateChangeListener() {
+//            @Override
+//            public void onExpandStateChanged(TextView textView, boolean isExpanded) {
+//            }
+//        });
+//        expTv1.setText(dataCardItem.getShort_description());
+
         // LinearLayout
         llCountDown = (LinearLayout) rootView.findViewById(R.id.llCountDown);
         llCountDownParent = (LinearLayout) rootView.findViewById(R.id.llCountDownParent);
@@ -125,6 +143,8 @@ public abstract class DetailActivityUI {
         rvAppSuggest = (HListView) rootView.findViewById(R.id.hlvAppSuggest);
         // rating bar
         rbDetail = (CustomRatingBar) rootView.findViewById(R.id.rbDetail);
+        svParentAppDetailActivity = (ObservableScrollView) rootView.findViewById(R.id.svParentAppDetailActivity);
+        svParentAppDetailActivity.setScrollViewCallbacks(this);
         // custom view
         customView();
         setSizeView();
@@ -170,9 +190,10 @@ public abstract class DetailActivityUI {
         tvReadMoreDescription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, ReadMoreActivity.class);
-                intent.putExtra(Constants.Intent.READ_MORE_TYPE, 1);
-                intent.putExtra(Constants.Intent.CARD, dataCardItem.getId());
+                Intent intent = new Intent(activity, SeeMoreActivity.class);
+                //LogUtil.e("content",dataCardItem.getShort_description());
+                intent.putExtra(Constants.Intent.CARD_CONTENT, dataCardItem.getShort_description());
+                intent.putExtra(Constants.Intent.CARD_NAME, dataCardItem.getName());
                 activity.startActivity(intent);
             }
         });
@@ -274,6 +295,7 @@ public abstract class DetailActivityUI {
         tvNameItem.setText(dataCardItem.getName());
         tvAuthorItem.setText(dataCardItem.getAuthor());
         tvShortDescription.setText(dataCardItem.getShort_description());
+
         // analytic information
         tvCountDown.setText(Integer.toString(dataCardItem.getDowns_count()));
         tvRate.setText(Float.toString(dataCardItem.getRate()));
@@ -282,9 +304,13 @@ public abstract class DetailActivityUI {
         if (dataCardItem.getPromo_video() != null) {
             ivPromoVideoPlay.setVisibility(View.VISIBLE);
         }
+
+
         // custom value
         initCustomValue();
+
         btStatusDetailButton.setmBidingData(mBidingData);
+
         this.dataCardItem.addUpdateListener(this.mUpdateListener);
 
         btStatusDetailButton.rebind(dataCardItem);
@@ -304,7 +330,7 @@ public abstract class DetailActivityUI {
         setHListViewHeightBasedOnChildren(rvAppSuggest);
         // update view for custom
         updateCustomView(dataCardItem);
-
+        svParentAppDetailActivity.fullScroll(View.FOCUS_UP);
         // load suggest items
     }
 

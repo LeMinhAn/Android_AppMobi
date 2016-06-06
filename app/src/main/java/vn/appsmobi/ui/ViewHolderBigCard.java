@@ -52,7 +52,6 @@ public class ViewHolderBigCard extends RecyclerView.ViewHolder {
         this.options = options;
         try {
             myDataCardItem = DataCardItem.get(data.getCard_data().getJSONObject(0), data.getCard_data_type());
-
         } catch (JSONException e) {
             e.printStackTrace();
         }

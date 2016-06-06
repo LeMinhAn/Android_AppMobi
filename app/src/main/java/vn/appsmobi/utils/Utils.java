@@ -46,6 +46,7 @@ import java.util.regex.Pattern;
 import vn.appsmobi.R;
 import vn.appsmobi.activity.AppDetailActivity;
 import vn.appsmobi.activity.HomeActivity;
+import vn.appsmobi.model.CatetoryItem;
 import vn.appsmobi.model.DataCardItem;
 
 public class Utils {
@@ -695,5 +696,12 @@ public class Utils {
         String folder_string = DownloadInstallManager.DOWNLOAD_FOLDER + "/" + sub_folder;
         Utils.createDirIfNotExists(folder_string);
         return new File(Environment.getExternalStorageDirectory(), folder_string + dataCardItem.getName() + "." + file_type);
+    }
+    public static String getCategory(ArrayList<CatetoryItem> arrayList){
+        String category_string = "";
+        for(CatetoryItem item :arrayList){
+            category_string = category_string+item.getCategory_name()+",";
+        }
+        return category_string;
     }
 }

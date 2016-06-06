@@ -41,6 +41,7 @@ public class AppMobiApplication extends MainApplication {
         return 0;
     }
 
+    //******************Single tone android
     public void onCreate() {
         super.onCreate();
         LocalAppManager.init(this);

@@ -3,6 +3,7 @@ package vn.appsmobi.loader;
 import android.content.ContentProviderOperation;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.OperationApplicationException;
 import android.os.AsyncTask;
@@ -11,7 +12,9 @@ import android.os.Message;
 import android.os.RemoteException;
 import android.provider.Settings;
 import android.support.v4.content.Loader;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
+import android.view.WindowManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,6 +23,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.appsmobi.R;
 import vn.appsmobi.activity.BaseActivity;
 import vn.appsmobi.db.DBContract;
 import vn.appsmobi.db.DBContract.Cache;
@@ -28,6 +32,7 @@ import vn.appsmobi.model.Tags;
 import vn.appsmobi.requests.Request;
 import vn.appsmobi.utils.LogUtil;
 import vn.appsmobi.utils.ThreadPool;
+import vn.appsmobi.utils.UIUtils;
 
 public abstract class BaseLoader<GenericResult extends BaseResult> extends
         Loader<GenericResult> {
@@ -44,9 +49,11 @@ public abstract class BaseLoader<GenericResult extends BaseResult> extends
     protected String mEtag;
     protected DbCache mCache;
     private WeakReference<BaseActivity> mBaseActivityRef;
+    private Context activityContext;
 
     public BaseLoader(Context context) {
         super(context);
+        activityContext = context;
         if (context instanceof BaseActivity) {
             mBaseActivityRef = new WeakReference<BaseActivity>(
                     (BaseActivity) context);
@@ -326,6 +333,7 @@ public abstract class BaseLoader<GenericResult extends BaseResult> extends
      */
     protected abstract class UpdateTask extends BaseTask {
         private boolean needSaveToDb;
+        String jonsString = "";
 
         public UpdateTask() {
             super();
@@ -342,6 +350,7 @@ public abstract class BaseLoader<GenericResult extends BaseResult> extends
          */
         @Override
         protected GenericResult doInBackground(Void... params) {
+
             Request request = getRequest();
             if (mEtag != null) {
                 request.addHeader("If-None-Match", mEtag);
@@ -349,11 +358,16 @@ public abstract class BaseLoader<GenericResult extends BaseResult> extends
             int status = request.getStatus();
             GenericResult result = getResultInstance();
             if (status == Request.STATUS_OK) {
+
                 final String etag = request.getEtag();
                 JSONObject mainObject = request.requestJSON();
                 GenericResult newResult = parseTaskResult(mainObject);
                 result = onDataLoaded(mResult, newResult);
-                final String jonsString = mainObject.toString();
+
+                jonsString = "";
+
+                    jonsString = mainObject.toString();
+
                 if (needSaveToDb && mNeedDatabase
                         && !TextUtils.isEmpty(getCacheKey())) {
                     ThreadPool.execute(new Runnable() {
@@ -365,8 +379,6 @@ public abstract class BaseLoader<GenericResult extends BaseResult> extends
                 }
                 return result;
             } else if (status == Request.STATUS_NOT_MODIFIED) {
-                LogUtil.d(TAG, "url: " + request.getRequestUrl()
-                        + " is NOT MODIFIED");
                 mNeedDeliverResult = false;
                 result = mResult;
             } else if (status == Request.STATUS_NETWORK_UNAVAILABLE) {

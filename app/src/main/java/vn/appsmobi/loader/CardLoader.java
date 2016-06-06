@@ -99,6 +99,7 @@ public class CardLoader extends BaseLoader {
 
         protected BaseResult onDataLoaded(BaseResult oldResult, BaseResult newResult) {
             BaseResult localResult = null;
+
             if (newResult != null && (((CardResult) newResult).cards != null) && (!((CardResult) newResult).cards.isEmpty())) {
                 needNextPage = true;
                 localResult = newResult;

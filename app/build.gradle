@@ -100,4 +100,5 @@ dependencies {
     // palalax recycview
     compile 'cn.yangbingqiang.android:parallaxviewpager:1.0.1'
 
+
 }

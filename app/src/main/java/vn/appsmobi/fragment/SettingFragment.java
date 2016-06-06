@@ -12,6 +12,7 @@ import vn.appsmobi.R;
 /**
  * Created by tobrother on 04/04/2016.
  */
+//Fragment của trang Setting
 public class SettingFragment extends Fragment {
     // View
     View view;

@@ -18,6 +18,7 @@ import static vn.appsmobi.utils.UIUtils.setViewSize;
 /**
  * Created by tobrother on 27/01/2016.
  */
+//Lớp cha của lớp DetailWallPaperUI, DetailRingToneUI
 public abstract class DetailMediaActivityUI {
     // Activity
     Activity activity;

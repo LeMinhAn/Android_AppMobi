@@ -12,6 +12,7 @@ import vn.appsmobi.model.WallPaperItem;
 /**
  * Created by tobrother on 27/01/2016.
  */
+//Kế thừa từ lớp cha DetailMediaActivityUI
 public class DetailWallPaperUI extends DetailMediaActivityUI {
 
     WallPaperItem wallPaperItem;

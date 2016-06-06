@@ -83,6 +83,13 @@
             android:name=".activity.RingToneDetailActivity"
             android:label="@string/title_activity_test_image_detail"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.SeeMoreActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -51,9 +51,10 @@ public class Constants {
         public static final String EXTRA_TAB_TYPE = "vn.appsmobi.extra_tab_type";
         public static final String CARD_TYPE = "vn.appsmobi.card_type";
         public static final String CARD_DATA_TYPE = "vn.appsmobi.card_data_type";
-
+        public static final String CARD_CONTENT = "vn.appsmobi.card_content";
         public static final String CARD = "vn.appsmobi.card";
         public static final String READ_MORE_TYPE = "vn.appsmobi.read_more_type";
+        public static final String CARD_NAME = "vn.appsmobi.name";
     }
 
     public static class RequestURL {

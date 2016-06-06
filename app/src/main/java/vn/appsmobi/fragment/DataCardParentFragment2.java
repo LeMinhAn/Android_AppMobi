@@ -14,7 +14,7 @@ import cn.yangbingqiang.android.parallaxviewpager.ParallaxViewPager;
 import vn.appsmobi.R;
 import vn.appsmobi.ui.SlidingTabLayout;
 import vn.appsmobi.utils.Constants;
-
+//Fragment của 4 cái: danh mục, nổi bật, top, new
 public class DataCardParentFragment2 extends Fragment {
 
     private View mHeaderView;

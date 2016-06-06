@@ -27,6 +27,7 @@ import vn.appsmobi.utils.Utils;
 /**
  * Created by tobrother on 28/12/2015.
  */
+//set Adapter cho phần dưới của App, Film, Game, Book, wallpaper, ringtone trong phần nổi bật, top, new
 public class ViewHolderListVerticalCard extends RecyclerView.ViewHolder {
     private Button btReadMoreListVerticalCard;
     public ListView lvListVerticalCard;
@@ -59,6 +60,7 @@ public class ViewHolderListVerticalCard extends RecyclerView.ViewHolder {
                 getLVListVerticalCard().setAdapter(myRingToneAdapter);
                 break;
         }
+        //Sự kiện click cho từng items phía dưới trong phần nổi bật, top, new
         getLVListVerticalCard().setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int mposition, long id) {

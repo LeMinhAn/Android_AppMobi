@@ -54,7 +54,7 @@ import vn.appsmobi.wallsplash.Utils;
 
 import static vn.appsmobi.utils.UIUtils.loadImageLoader;
 
-
+//Sử dụng để hiển thị chi tiết của một hình ảnh, trong chi tiết bạn có thể: tải, share và xem chi tiết thông số của một hình ảnh
 public class ImageDetailActivity extends AppCompatActivity {
     private static final int ACTIVITY_CROP = 13451;
     private static final int ACTIVITY_SHARE = 13452;

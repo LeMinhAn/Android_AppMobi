@@ -1,3 +1,390 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\libs\Header2ActionBar-0.2.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="10177db0cadad540e0c80072d3766cb2eaa1b2e3">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\2\Header2ActionBar-0.2.1_e65d695dbe0561c7fd539949dc0541685691c47b\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.github.dmytrodanylyk.android-process-button\library\1.0.4\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="88ccdbf844995d5c9c845e087068d27588b2d026">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.dmytrodanylyk.android-process-button-library-1.0.4_251863172df038ed4c52893d759f51d383f02f3c\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Le Minh An\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp-urlconnection\2.5.0\d737653459be272e881d51024274fa4785225641\okhttp-urlconnection-2.5.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="d737653459be272e881d51024274fa4785225641">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-urlconnection-2.5.0_744dac2412e2b7c78da49a1f8bc5b4014dd03749\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-measurement\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="b000ecceb9877fefcdc7ab1959ff03df91551656">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-measurement-8.3.0_1b42eaa4b49287a0fb580900d878abc263f31361\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.github.xiprox.errorview\library\1.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="2f07c1a2a8ce3659cdc1cecd23e7253674583981">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.xiprox.errorview-library-1.0.0_4103e8b60b6e0f0242da6f507b702a8197e8898f\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="af6ee25641df3142059c0828517aa7ee6eba08d6">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-8.3.0_eb3a901a738ecb0b102fc44d4ae2f306efc2c4e2\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Le Minh An\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_797286814a8443a72ba51e97ce9af9b9050224e5\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.github.ksoichiro\android-observablescrollview\1.5.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="256c2cf84542c459927ed4aa5f99a9b47855c071">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.ksoichiro-android-observablescrollview-1.5.2_66fb8f55e69ce4b1952f43a7bf2d4be101bb1178\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.github.techery\ProperRatingBar\v0.0.3\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ee5c50077601f1c9a5aac645bd2c8f366400baee">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.techery-ProperRatingBar-v0.0.3_2d57f6a00bf2df2460f6f729d38034bdba034aad\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.1.1_32e37cbbfe89d15191f9be7677dfff13ba8198f0\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8a791acfd9d9b804c079a104224d8ea5702459df">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_a74393ba35aa82e100a0bf4637889c81d16339a6\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Le Minh An\.gradle\caches\modules-2\files-2.1\com.koushikdutta.ion\ion\2.1.6\cd55ef3ba6d8b62838b658ba2507b019dffb3a08\ion-2.1.6.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="cd55ef3ba6d8b62838b658ba2507b019dffb3a08">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\ion-2.1.6_b204146866326c0cdce961850a205146dc8039c4\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.mikepenz\google-material-typeface\1.2.0.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="b646d398bbae664de1bf476c308a2b39d6d2651c">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikepenz-google-material-typeface-1.2.0.1_e4b73bcd1f30d4884fff54b845a43f1ad319ae5d\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.2.1_91077543f31ca994f839a317c13f6e07a7da655c\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.cocosw\bottomsheet\1.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="37a4672e2ae8d65082bd66183d12fcd5d106a336">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.cocosw-bottomsheet-1.3.0_ca3658413e585f81634329b0fc1d0f5ffc360e43\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.mikhaellopez\circularprogressbar\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="961216476b6e97986980dd2c4ad1523b4162486e">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikhaellopez-circularprogressbar-1.0.1_761193ce1d35d53e928fde5a096b5084b60e5a43\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.mikepenz\materialdrawer\5.1.6\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="5b4c55619063d1007afc85fbb5902632cd5bc59b">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikepenz-materialdrawer-5.1.6_7616e1ff65b153814ebbe45e863b734126449bf3\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Le Minh An\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.6.0_710fcef8d20fb370b49a93daf214c692c0a1012c\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Le Minh An\.gradle\caches\modules-2\files-2.1\com.jakewharton\disklrucache\2.0.2\93b399470e72c0bc8cb52379943b63c9aa586cd8\disklrucache-2.0.2.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="93b399470e72c0bc8cb52379943b63c9aa586cd8">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\disklrucache-2.0.2_a33950c977a7d76e393b8088ae5fa39c9072972f\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.mikepenz\iconics-core\2.5.10\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="723cdf1c3837f94e5da19a77e32594b7ba0f3282">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikepenz-iconics-core-2.5.10_f58b5d7a1954f590bdb61987128729dfaceedd2a\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\me.grantland\autofittextview\0.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="81db45283d36bfc6e3380c325fb09b2283f36775">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\me.grantland-autofittextview-0.2.0_469d86b1ddae280adf24ea92b4f92163ae9dd463\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.mcxiaoke.volley\library-aar\1.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e40b9a81989bd4a846018551c280f8c4d837bf2e">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mcxiaoke.volley-library-aar-1.0.0_32e8e7feff7b1dd6d91b9186de438143b20af00e\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="9dddef248ccd855fe5cb2008860f709ab5ef8c96">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d1becfd156d51d129995a616dd5fda0584ea1015\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.github.lzyzsd\circleprogress\1.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="73bcbadd2125c5198fa99feb81d2f43a5699be3c">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.lzyzsd-circleprogress-1.2.0_e3c83a5c0c551adcfb83262fc0c915777ac5591c\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.2.1_f260cb6c1c3f639904ae02ddc1dcec6fd7f1a8db\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Le Minh An\.gradle\caches\modules-2\files-2.1\com.google.android.apps.muzei\muzei-api\2.0\ea86be2a201e6ad86dacffe774dbc6d89fcb0c92\muzei-api-2.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ea86be2a201e6ad86dacffe774dbc6d89fcb0c92">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\muzei-api-2.0_31827651ff0c37df262f25ffcb9f9d57e286868e\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Le Minh An\.gradle\caches\modules-2\files-2.1\com.koushikdutta.async\androidasync\2.1.6\e3d5f6ab2003e31f2cf5ea61b4731a21e9517935\androidasync-2.1.6.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e3d5f6ab2003e31f2cf5ea61b4731a21e9517935">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\androidasync-2.1.6_4449728c8780d05081507c44475f730b4c9cbc91\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Le Minh An\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit\retrofit\1.9.0\a681c044244d9fc375198588297a39ba78028423\retrofit-1.9.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-1.9.0_189cf9e3b4b76ee26360b16f27f35b0cecce5c9b\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="aa81bfe8c5cc88c2472ca936ae71f0c3dd1766df">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\io.reactivex-rxandroid-1.0.1_4548f2aab5b5b48267b55ce945793cbe7da9a173\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.github.florent37\androidparallax\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="16e578dc74247f694a05d8a7628f3dd58c84633f">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.florent37-androidparallax-1.0.1_cc7a865eb82b590b883f7ec79e3847101a571192\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.2.1_0cfb07b829f20c4873600f41677a4431d8ca98a9\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Le Minh An\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\23.2.1\support-annotations-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.2.1_aee3c9d64900d63806797b761ccb69aa2519c496\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.bartoszlipinski\viewpropertyobjectanimator\1.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="1828dd75d357690efb2c5f4326804e2f7ad21f6c">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.bartoszlipinski-viewpropertyobjectanimator-1.2.0_653c0a4bf51f4b56c0e7c24b187939451c77e8b2\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\cn.yangbingqiang.android\parallaxviewpager\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="1b759db58bd4fe935ef899caa781fdc9fa95613f">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\cn.yangbingqiang.android-parallaxviewpager-1.0.1_e5140e1d7dab4c4ab621d7d19921c15789ebf761\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.github.afollestad.material-dialogs\core\0.8.5.3\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8174013f25a7d1f9bb4e50e2e3dc11254dee1442">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.afollestad.material-dialogs-core-0.8.5.3_27a36c4ab41c56fd315d42e7dc2e27994940e68e\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.github.arimorty\floatingsearchview\1.1.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="7aeef59b6b3360abc1283c06eaf98ce10fe087b4">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.arimorty-floatingsearchview-1.1.2_e64a5202879347a6f9bc022dd70d4af5ce8da4b3\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Le Minh An\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\library-2.4.0_ffff960e86e45edec9aa053f3fb7510ec5448fee\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Le Minh An\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.0.13\b8668706414b5936d38c8a9e4c2be16e3c999c62\rxjava-1.0.13.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="b8668706414b5936d38c8a9e4c2be16e3c999c62">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\rxjava-1.0.13_a44239bac5ad01c7374bf4c913f7d280d85f5e10\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Le Minh An\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3.1\ecb6e1f8e4b0e84c4b886c2f14a1500caf309757\gson-2.3.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.3.1_66fde2ef79e31b88516f97d3d8a8fb96ba6154d2\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.mikepenz\aboutlibraries\5.2.6\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="d0f4599faa70ea77eaabf3d5b56317c2383723e3">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikepenz-aboutlibraries-5.2.6_0eff9c75797d011e87f68e2a030a1b7abfe2c390\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="345a1b5cf5b144ce18ba6962bc66a7e2f26c1c1b">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-8.3.0_37e6d7bc13a3d3a32ed92bb6b778188af4f24f97\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.android.support\palette-v7\23.1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="167a5721524b1d2810d1b41ed76eff1d53a0e82b">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-23.1.0_f1febf9c12c135340f7410aa3ffc2d14f2be8292\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\it.sephiroth.android.library.horizontallistview\hlistview\1.2.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="698658e3af1e3f2a5b199e0d09ee6c57793405bd">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\it.sephiroth.android.library.horizontallistview-hlistview-1.2.2_5c987d643990876a6a45f6c33f67d197f399c8de\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.mikepenz\materialize\0.8.6\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="0c0e104cedca43c5c5c39851605485e4e7e6c3a6">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikepenz-materialize-0.8.6_870042583e5f64ab710a20e2eae82680f09a6f99\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.mikepenz\fastadapter\1.2.7\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="2585a05c70fab6285ed027b47e24376c36d52a3f">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikepenz-fastadapter-1.2.7_ac2cb06b8a210b00d38dc0f3b8ea8256dc612b99\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.2.1_48ee516cf6dd97a4d2b717d1c3c9e6727a020019\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.nispok\snackbar\2.11.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="d0db114dc90b3e192ba48d22421a9c47cfc01f00">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.nispok-snackbar-2.11.0_3b554a1ce626aaea0f9cb2a9697b4c6be65df226\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Le Minh An\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.5.0\4de2b4ed3445c37ec1720a7d214712e845a24636\okhttp-2.5.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="4de2b4ed3445c37ec1720a7d214712e845a24636">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-2.5.0_4578bd704dc05d29840ece2dec599a8c80bcfb2c\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\me.zhanghai.android.materialprogressbar\library\1.1.4\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="2a24cba08e1d865a79e61335f5a1bd64d520106d">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\me.zhanghai.android.materialprogressbar-library-1.1.4_9226c9b06ac715270964276593f11ca76d586194\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\libs\internal_impl-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.2.1_f2e0ad994b803c8957b1caf481c6bace7e443ceb\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\libs\universal-image-loader-1.9.4.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\2\universal-image-loader-1.9.4_dbe63aa0464b6f25990dc8fe793e1ac6fca23685\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.2.1_233261e68a52fe0333b201683ee358531b3dd459\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.mikepenz\fontawesome-typeface\4.4.0.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e8ad61c604470ee6933c21ae0aefcf9ee03c3911">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikepenz-fontawesome-typeface-4.4.0.1_68de93d726ad5632941375f65b1509c29106c13d\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\net.steamcrafted\load-toast\1.0.9\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="76c12908494b9f9082211decaae5d380eba25743">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\net.steamcrafted-load-toast-1.0.9_72e4da0cbe5380e02e90aa12f3c02794d5a50102\classes.dex" />
+    </item>
+    <item
+        jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="72961d8b453b46e277702f18de9d210bc019e36e">
+        <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.2.1_e7ec87f8b7a41de2ad64d4372f3c3e6ac6d1ae5f\classes.dex" />
+    </item>
+
+</items>

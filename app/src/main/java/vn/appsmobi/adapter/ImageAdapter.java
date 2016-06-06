@@ -16,6 +16,7 @@ import vn.appsmobi.utils.UIUtils;
 /**
  * Created by tobrother on 04/01/2016.
  */
+//Set adapter cho từng image cho slideImage
 public class ImageAdapter extends BaseAdapter {
     Context context;
     ArrayList<String> imageArray;

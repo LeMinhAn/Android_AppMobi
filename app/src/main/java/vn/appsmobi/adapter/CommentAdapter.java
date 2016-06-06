@@ -23,6 +23,7 @@ import vn.appsmobi.utils.Constants;
 /**
  * Created by tobrother on 05/01/2016.
  */
+//Set adapter cho phần list comment trong chi tiết của appDetailActivity gồm: app, film, game, book
 public class CommentAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<CardItem> cardItems;

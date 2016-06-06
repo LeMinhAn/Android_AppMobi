@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -120,7 +121,7 @@ public class DataCardItem implements Parcelable {
      * update status
      */
 
-
+    //Dựa vào CARD_STATUS để biết được trạng thái của app đó
     public void updateAppStatus() {
         LocalAppManager localManager = LocalAppManager.getManager();
         int currentCardStatus = getCard_status();
@@ -223,8 +224,6 @@ public class DataCardItem implements Parcelable {
         }
         return false;
     }
-
-
     /**
      * todo Class DataCache
      */
@@ -606,6 +605,8 @@ public class DataCardItem implements Parcelable {
         }
         if (!jsonObject.isNull(Constants.JSON_PARSE.SIZE)) {
             this.setSize((float) jsonObject.getDouble(Constants.JSON_PARSE.SIZE));
+        }else {
+            this.setSize(0);
         }
         if (!jsonObject.isNull(Constants.JSON_PARSE.RATE)) {
             this.setRate((float) jsonObject.getDouble(Constants.JSON_PARSE.RATE));

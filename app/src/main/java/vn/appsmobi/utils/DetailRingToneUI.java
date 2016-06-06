@@ -19,6 +19,7 @@ import static vn.appsmobi.utils.UIUtils.setImageSize;
 /**
  * Created by tobrother on 27/01/2016.
  */
+//Kế thừa từ lớp cha DetailMediaActivityUI
 public class DetailRingToneUI extends DetailMediaActivityUI {
     RingToneItem ringToneItem;
     ImageView ivPlayDetailImage;
