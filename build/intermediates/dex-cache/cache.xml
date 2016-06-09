@@ -75,7 +75,7 @@
         jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="8a791acfd9d9b804c079a104224d8ea5702459df">
+        sha1="bbc4090a668a840b44ef8bf0127d940c050d5ba7">
         <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_a74393ba35aa82e100a0bf4637889c81d16339a6\classes.dex" />
     </item>
     <item
@@ -159,7 +159,7 @@
         jar="E:\AppAndroid\Android_AppMobi\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="9dddef248ccd855fe5cb2008860f709ab5ef8c96">
+        sha1="2525d1e4bb0276dcc67a5da5152088a75e707bf8">
         <dex dex="E:\AppAndroid\Android_AppMobi\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d1becfd156d51d129995a616dd5fda0584ea1015\classes.dex" />
     </item>
     <item

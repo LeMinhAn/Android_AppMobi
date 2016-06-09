@@ -366,7 +366,7 @@ public abstract class BaseLoader<GenericResult extends BaseResult> extends
 
                 jonsString = "";
 
-                    jonsString = mainObject.toString();
+                jonsString = mainObject.toString();
 
                 if (needSaveToDb && mNeedDatabase
                         && !TextUtils.isEmpty(getCacheKey())) {

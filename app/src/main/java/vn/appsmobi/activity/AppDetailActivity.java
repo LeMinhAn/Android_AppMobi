@@ -97,6 +97,7 @@ public class AppDetailActivity extends AppCompatActivity implements LoaderManage
 
     /*
       INIT LOADER
+      Đã set view cho phan comment và card suggest trong phan details activity
      */
     @Override
     public void refreshData() {
