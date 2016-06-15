@@ -16,7 +16,6 @@ import android.os.Bundle;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.transition.Transition;
 import android.util.Log;
@@ -26,7 +25,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,7 +55,6 @@ import vn.appsmobi.wallsplash.Utils;
 
 import static vn.appsmobi.utils.UIUtils.loadImageLoader;
 
-//Sử dụng để hiển thị chi tiết của một hình ảnh, trong chi tiết bạn có thể: tải, share và xem chi tiết thông số của một hình ảnh
 public class ImageDetailActivity extends AppCompatActivity {
     private static final int ACTIVITY_CROP = 13451;
     private static final int ACTIVITY_SHARE = 13452;
@@ -68,9 +68,8 @@ public class ImageDetailActivity extends AppCompatActivity {
     private ImageView mFabShareButton;
     private ImageView mFabDownloadButton;
     private DonutProgress mFabProgress;
-    private View mTitleContainer;
-    private View mTitlesContainer;
-
+    private FrameLayout mTitleContainer;
+    private RelativeLayout mTitlesContainer;
 
     private Drawable mDrawablePhoto;
     private Drawable mDrawableClose;
@@ -79,35 +78,35 @@ public class ImageDetailActivity extends AppCompatActivity {
 
     private ResponseFuture<InputStream> future = null;
 
-    private int mWallpaperWidth;
-    private int mWallpaperHeight;
-
     private Animation mProgressFabAnimation;
     private ImageView imageView;
-    DataCardItem dataCardItem;
+    private DataCardItem dataCardItem;
+
+    private RelativeLayout container;
+    private Bitmap imageCoverBitmap;
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_image_detail);
-        findViewById(R.id.container).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-        //get the desired wallpaper size so older phones won't die :D
-        mWallpaperWidth = WallpaperManager.getInstance(ImageDetailActivity.this).getDesiredMinimumWidth();
-        mWallpaperHeight = WallpaperManager.getInstance(ImageDetailActivity.this).getDesiredMinimumHeight();
-        // Recover items from the intent
 
+        initValues();
+        initView();
+        initAction();
+    }
+
+    private void initValues() {
         dataCardItem = getIntent().getParcelableExtra("selected_image");
-
         mDrawablePhoto = new IconicsDrawable(this, FontAwesome.Icon.faw_photo).color(Color.WHITE).sizeDp(24);
         mDrawableClose = new IconicsDrawable(this, FontAwesome.Icon.faw_close).color(Color.WHITE).sizeDp(24);
         mDrawableSuccess = new IconicsDrawable(this, FontAwesome.Icon.faw_check).color(Color.WHITE).sizeDp(24);
         mDrawableError = new IconicsDrawable(this, FontAwesome.Icon.faw_exclamation).color(Color.WHITE).sizeDp(24);
-        mTitlesContainer = findViewById(R.id.activity_detail_titles);
+    }
+
+    private void initView() {
+        container = (RelativeLayout) findViewById(R.id.container);
+        mTitlesContainer = (RelativeLayout) findViewById(R.id.activity_detail_titles);
         // Fab progress
         mFabProgress = (DonutProgress) findViewById(R.id.activity_detail_progress);
         mFabProgress.setMax(100);
@@ -118,47 +117,29 @@ public class ImageDetailActivity extends AppCompatActivity {
         mFabButton.setScaleX(0);
         mFabButton.setScaleY(0);
         mFabButton.setImageDrawable(mDrawablePhoto);
-        mFabButton.setOnClickListener(onFabButtonListener);
-        //just allow the longClickAction on Devices newer than api level v19
-        if (Build.VERSION.SDK_INT >= 19) {
-            mFabButton.setOnLongClickListener(onFabButtonLongListener);
-        }
-
         // Fab share button
         mFabShareButton = (ImageView) findViewById(R.id.activity_detail_fab_share);
         mFabShareButton.setScaleX(0);
         mFabShareButton.setScaleY(0);
         mFabShareButton.setImageDrawable(new IconicsDrawable(this, FontAwesome.Icon.faw_share).color(Color.WHITE).sizeDp(16));
-        mFabShareButton.setOnClickListener(onFabShareButtonListener);
-
         // Fab download button
         mFabDownloadButton = (ImageView) findViewById(R.id.activity_detail_fab_download);
         mFabDownloadButton.setScaleX(0);
         mFabDownloadButton.setScaleY(0);
         mFabDownloadButton.setImageDrawable(new IconicsDrawable(this, FontAwesome.Icon.faw_download).color(Color.WHITE).sizeDp(16));
-        mFabDownloadButton.setOnClickListener(onFabDownloadButtonListener);
         // Title container
-        mTitleContainer = findViewById(R.id.activity_detail_title_container);
+        mTitleContainer = (FrameLayout) findViewById(R.id.activity_detail_title_container);
         Utils.configuredHideYView(mTitleContainer);
-
-        // Define toolbar as the shared element
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.activity_detail_toolbar);
-        setSupportActionBar(toolbar);
 
         //get the imageHeader and set the coverImage
         imageView = (ImageView) findViewById(R.id.activity_detail_image);
         loadImageLoader(Constants.options, dataCardItem.getIcon_image(), imageView);
-        Bitmap imageCoverBitmap = vn.appsmobi.utils.Utils.drawableToBitmapIcon(getResources().getDrawable(R.drawable.bg_horizontal_card_test));
+        imageCoverBitmap = vn.appsmobi.utils.Utils.drawableToBitmapIcon(getResources().getDrawable(R.drawable.bg_horizontal_card_test));
         //safety check to prevent nullPointer in the palette if the detailActivity was in the background for too long
         if (imageCoverBitmap == null || imageCoverBitmap.isRecycled()) {
             this.finish();
             return;
         }
-//        image.setImageBitmap(imageCoverBitmap);
-
-        //override text
-        setTitle("");
-
         if (Build.VERSION.SDK_INT >= 21) {
             imageView.setTransitionName("cover");
             // Add a listener to get noticed when the transition ends to animate the fab button
@@ -173,7 +154,42 @@ public class ImageDetailActivity extends AppCompatActivity {
             Utils.showViewByScale(imageView).setDuration(ANIMATION_DURATION_LONG).start();
             animateActivityStart();
         }
+        setImageCoverBitmap();
 
+        sp = getSharedPreferences("wall-splash", Context.MODE_PRIVATE);
+        if (!sp.getBoolean("help-understand", false)) {
+            Snackbar.with(getApplicationContext())
+                    .text(R.string.help_try_long_click)
+                    .actionLabel(R.string.help_try_long_click_ok)
+                    .actionColorResource(R.color.accent)
+                    .actionListener(new ActionClickListener() {
+                        @Override
+                        public void onActionClicked(Snackbar snackbar) {
+                            sp.edit().putBoolean("help-understand", true).apply();
+                        }
+                    })
+                    .show(this);
+        }
+    }
+
+    private void initAction() {
+        container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        mFabButton.setOnClickListener(onFabButtonListener);
+        //just allow the longClickAction on Devices newer than api level v19
+        if (Build.VERSION.SDK_INT >= 19) {
+            mFabButton.setOnLongClickListener(onFabButtonLongListener);
+        }
+        mFabShareButton.setOnClickListener(onFabShareButtonListener);
+        mFabDownloadButton.setOnClickListener(onFabDownloadButtonListener);
+
+    }
+
+    private void setImageCoverBitmap() {
         //check if we already had the colors during click
         int swatch_title_text_color = getIntent().getIntExtra("swatch_title_text_color", -1);
         int swatch_rgb = getIntent().getIntExtra("swatch_rgb", -1);
@@ -198,20 +214,6 @@ public class ImageDetailActivity extends AppCompatActivity {
                     setColors(s.getTitleTextColor(), s.getRgb());
                 }
             }
-        }
-        final SharedPreferences sp = getSharedPreferences("wall-splash", Context.MODE_PRIVATE);
-        if (!sp.getBoolean("help-understand", false)) {
-            Snackbar.with(getApplicationContext())
-                    .text(R.string.help_try_long_click)
-                    .actionLabel(R.string.help_try_long_click_ok)
-                    .actionColorResource(R.color.accent)
-                    .actionListener(new ActionClickListener() {
-                        @Override
-                        public void onActionClicked(Snackbar snackbar) {
-                            sp.edit().putBoolean("help-understand", true).apply();
-                        }
-                    })
-                    .show(this);
         }
     }
 
@@ -252,7 +254,6 @@ public class ImageDetailActivity extends AppCompatActivity {
                     Toast.makeText(ImageDetailActivity.this, R.string.error_no_storage, Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 //prepare the call
                 future = Ion.with(ImageDetailActivity.this)
                         .load(dataCardItem.getIcon_image())
@@ -267,7 +268,6 @@ public class ImageDetailActivity extends AppCompatActivity {
                         downloadImage(null);
                         super.onAnimationEnd(animation);
                     }
-
                     @Override
                     public void onAnimationCancel(Animator animation) {
                         downloadImage(null);
@@ -379,7 +379,6 @@ public class ImageDetailActivity extends AppCompatActivity {
                         } catch (Exception ex) {
                             Log.e("un:splash", ex.toString());
                         }
-
                         //animate after complete
                         animateComplete(success);
                     } else {
@@ -437,9 +436,6 @@ public class ImageDetailActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     *
-     */
     @TargetApi(Build.VERSION_CODES.KITKAT)
     private void downloadAndSetOrShareImage(final boolean set) {
         if (future != null) {
@@ -560,10 +556,6 @@ public class ImageDetailActivity extends AppCompatActivity {
         showTitleAnimator.start();
     }
 
-
-    /**
-     * animate the start of the download
-     */
     private void animateStart() {
         //reset progress to prevent jumping
         mFabProgress.setProgress(0);
@@ -597,7 +589,6 @@ public class ImageDetailActivity extends AppCompatActivity {
             mFabDownloadButton.setTag(null);
         }
     }
-
     /**
      * animate the reset of the view
      */
@@ -618,7 +609,6 @@ public class ImageDetailActivity extends AppCompatActivity {
         mFabShareButton.animate().translationX((-1) * Utils.pxFromDp(ImageDetailActivity.this, 58)).setDuration(ANIMATION_DURATION_MEDIUM).start();
         mFabDownloadButton.animate().translationX((-1) * Utils.pxFromDp(ImageDetailActivity.this, 108)).setDuration(ANIMATION_DURATION_MEDIUM).start();
     }
-
     /**
      * animate the first parts of the UI after the download has successfully finished
      */
@@ -646,7 +636,6 @@ public class ImageDetailActivity extends AppCompatActivity {
             mFabDownloadButton.setTag("");
         }
     }
-
     /**
      * finish the animations of the ui after the download is complete. reset the button to the start
      *
@@ -669,7 +658,6 @@ public class ImageDetailActivity extends AppCompatActivity {
         }
         future = null;
     }
-
     /**
      * @param titleTextColor
      * @param rgb
@@ -693,8 +681,6 @@ public class ImageDetailActivity extends AppCompatActivity {
         ((TextView) mTitleContainer.findViewById(R.id.activity_detail_subtitle))
                 .setTextColor(titleTextColor);
     }
-
-
     @Override
     public void onBackPressed() {
         mFabDownloadButton.animate()
@@ -752,7 +738,6 @@ public class ImageDetailActivity extends AppCompatActivity {
         }
     };
 
-
     private CustomAnimatorListener animationFinishListener2 = new CustomAnimatorListener() {
         private int animateFinish2 = 0;
 
@@ -783,14 +768,11 @@ public class ImageDetailActivity extends AppCompatActivity {
         }
     };
 
-    /**
-     *
-     */
     private void coolBack() {
         try {
             super.onBackPressed();
         } catch (Exception e) {
-            // ew;
+
         }
     }
 }
