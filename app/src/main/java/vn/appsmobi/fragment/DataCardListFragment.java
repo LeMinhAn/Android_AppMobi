@@ -1,5 +1,6 @@
 package vn.appsmobi.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -32,6 +33,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 
 import vn.appsmobi.R;
+import vn.appsmobi.activity.HomeActivity;
 import vn.appsmobi.activity.ImageDetailActivity;
 import vn.appsmobi.adapter.DataBidingAdapter;
 import vn.appsmobi.loader.BaseResult;
@@ -48,6 +50,7 @@ import vn.appsmobi.utils.ToastUtil;
 import vn.appsmobi.utils.Utils;
 
 import static vn.appsmobi.utils.UIUtils.calculateActionBarSize;
+
 //Bắt sự kiện trong từng items trong fragment tương ứng
 public class DataCardListFragment extends Fragment implements LoaderManager.LoaderCallbacks<BaseResult>, Refreshable, DataBidingAdapter.OnClickEvent {
     // init value
@@ -63,7 +66,6 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
     View view;
     int color;
     ObservableRecyclerView rvDataCardList;
-    LinearLayout toolbarContainer;
     // Loader for this activity
     CardLoader cardLoader;
     EmptyLoadingView cardLoadingFragment;
@@ -75,6 +77,7 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
     boolean isEndBottom = false;
     StaggeredGridLayoutManager gridLayout;
 
+    @SuppressLint("ValidFragment")
     public DataCardListFragment(int color) {
         this.color = color;
     }
@@ -147,7 +150,7 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
                 return false;
             }
         });
-        toolbarContainer = (LinearLayout) getActivity().findViewById(R.id.llActionBar);
+
         rvDataCardList = (ObservableRecyclerView) view.findViewById(R.id.rvDataCardList);
         // set layout manager for recycle view
         if (resType == Constants.TAB_TYPE.CATEGORY) {
@@ -326,17 +329,17 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
         rvDataCardList.setOnScrollListener(new HidingScrollListener(getActivity()) {
             @Override
             public void onMoved(int distance) {
-                toolbarContainer.setTranslationY(-distance);
+                HomeActivity.llActionBar.setTranslationY(-distance);
             }
 
             @Override
             public void onShow() {
-                toolbarContainer.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+                HomeActivity.llActionBar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
             }
 
             @Override
             public void onHide() {
-                toolbarContainer.animate().translationY(-calculateActionBarSize(getActivity())).setInterpolator(new AccelerateInterpolator(2)).start();
+                HomeActivity.llActionBar.animate().translationY(-calculateActionBarSize(getActivity())).setInterpolator(new AccelerateInterpolator(2)).start();
             }
         });
         rvDataCardList.setAdapter(dataBidingAdapter);

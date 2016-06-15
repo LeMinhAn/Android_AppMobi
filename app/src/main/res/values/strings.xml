@@ -2,6 +2,22 @@
     <string name="app_name">AppsMobi</string>
     <string name="action_settings">Settings</string>
 
+    <!--Home Activity-->
+    <string name="account_name">Lê Minh Ân</string>
+    <string name="account_mail">leminhan.cst@gmail.com</string>
+    <string name="menu_home">Trang Chủ</string>
+    <string name="menu_application">Ứng Dụng</string>
+    <string name="menu_game">Trò Chơi</string>
+    <string name="menu_ebook">E-Book</string>
+    <string name="menu_movie">Phim</string>
+    <string name="menu_ringstone">Nhạc Chuông</string>
+    <string name="menu_walpaper">Hình Nền</string>
+    <string name="menu_check">Đánh Dấu</string>
+    <string name="menu_history">Lịch Sử Cài Đặt</string>
+    <string name="menu_contact">Liên Hệ</string>
+    <string name="menu_setting">Cài Đặt</string>
+    <string name="search_hint">Tìm kiếm ....</string>
+    <string name="back_again">Please click BACK again to exit.</string>
     <string-array name="menu_titles">
         <item>Ứng dụng</item>
         <item>Trò chơi</item>

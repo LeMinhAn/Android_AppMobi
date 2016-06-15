@@ -7,7 +7,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import vn.appsmobi.R;
 
 public class Constants {
-    public static String API_URL = "http://auto4social.com/index.php/welcome";
+    public static String API_URL = "http://ssc-team.com/index.php/welcome";
     public static boolean DEBUG = false;
 
     public static String LOG_TAG = "BitmapCache";
