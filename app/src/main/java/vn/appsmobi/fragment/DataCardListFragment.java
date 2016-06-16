@@ -151,6 +151,8 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
             }
         }
         gridLayout.setReverseLayout(false);
+        rvDataCardList.setLayoutManager(gridLayout);
+        rvDataCardList.setHasFixedSize(true);
     }
 
     public void initView() {
@@ -164,8 +166,6 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
 
         rvDataCardList = (ObservableRecyclerView) view.findViewById(R.id.rvDataCardList);
         setLayoutManager();
-        rvDataCardList.setLayoutManager(gridLayout);
-        rvDataCardList.setHasFixedSize(true);
     }
 
     public void initActions() {
@@ -193,7 +193,7 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
 
     }
 
-    DataBidingAdapter.RecyclerAdapterMethods myRecyclerAdapterMethods = new DataBidingAdapter.RecyclerAdapterMethods() {
+    private DataBidingAdapter.RecyclerAdapterMethods myRecyclerAdapterMethods = new DataBidingAdapter.RecyclerAdapterMethods() {
         @Override
         public void changeViewPlayRingTone(ViewHolderRingStone vh, int position) {
             CircularProgressBar pb = vh.getCpcPlayRingStone();

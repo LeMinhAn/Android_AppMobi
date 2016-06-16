@@ -13,15 +13,12 @@ import org.json.JSONException;
 import vn.appsmobi.R;
 import vn.appsmobi.ui.ViewHolderVerticalCard;
 
-/**
- * Created by tobrother272 on 12/26/2015.
- */
-//Set adapter cho riêng app, game, book, film
 public class AdapterRowVerticalCardSuggest extends BaseAdapter {
     private Context context;
-    private float scaleItem;
+    float scaleItem;
     private int cardDataType = 0;
     private JSONArray dataCardItems;
+    private ViewHolderVerticalCard holder;
 
     public AdapterRowVerticalCardSuggest(Context context, JSONArray dataCardItems, float scaleItem, int cardDataType) {
         this.context = context;
@@ -52,7 +49,6 @@ public class AdapterRowVerticalCardSuggest extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        ViewHolderVerticalCard holder;
         if (convertView == null) {
             LayoutInflater li = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             convertView = li.inflate(R.layout.item_vertical_card, null);

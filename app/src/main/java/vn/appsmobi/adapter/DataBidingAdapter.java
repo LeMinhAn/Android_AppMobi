@@ -22,19 +22,16 @@ import vn.appsmobi.ui.ViewHolderRingStone;
 import vn.appsmobi.ui.ViewHolderVerticalCard;
 import vn.appsmobi.utils.Constants;
 
-/**
- * Created by tobrother on 26/01/2016.
- */
-//Set adapter cho fragment trong menu gồm: app, game, film,....
 public class DataBidingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    ArrayList<CardItem> cardItems;
+
+    private ArrayList<CardItem> cardItems;
     private DisplayImageOptions options;
-    Context context;
-    RecyclerAdapterMethods mRecyclerAdapterMethods;
+    private Context context;
+    private RecyclerAdapterMethods mRecyclerAdapterMethods;
     OnClickEvent mOnClickEvent;
     public String TAG = "DataBidingAdapter";
+    private RecyclerView.ViewHolder viewHolder;
 
-    // interface
     public interface OnClickEvent {
         void onClick(View v, int position) throws JSONException;
     }
@@ -61,7 +58,6 @@ public class DataBidingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        final RecyclerView.ViewHolder viewHolder;
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         switch (viewType) {
             case Constants.HOME_CARD_TYPE.TEXT_CARD: // category

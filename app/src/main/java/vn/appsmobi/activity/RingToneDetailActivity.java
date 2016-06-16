@@ -56,6 +56,7 @@ import static vn.appsmobi.utils.UIUtils.loadImageLoader;
 
 
 public class RingToneDetailActivity extends AppCompatActivity {
+
     private static final int ACTIVITY_CROP = 13451;
     private static final int ACTIVITY_SHARE = 13452;
 
@@ -79,12 +80,9 @@ public class RingToneDetailActivity extends AppCompatActivity {
 
     private ResponseFuture<InputStream> future = null;
 
-    private int mWallpaperWidth;
-    private int mWallpaperHeight;
-
     private Animation mProgressFabAnimation;
     private ImageView imageView;
-    DataCardItem dataCardItem;
+    private DataCardItem dataCardItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,10 +94,6 @@ public class RingToneDetailActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        //get the desired wallpaper size so older phones won't die :D
-        mWallpaperWidth = WallpaperManager.getInstance(RingToneDetailActivity.this).getDesiredMinimumWidth();
-        mWallpaperHeight = WallpaperManager.getInstance(RingToneDetailActivity.this).getDesiredMinimumHeight();
-        // Recover items from the intent
 
         dataCardItem = getIntent().getParcelableExtra("selected_image");
 

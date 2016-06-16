@@ -32,6 +32,7 @@ import vn.appsmobi.utils.DetailMediaActivityUI;
 import vn.appsmobi.utils.DetailMovieUI;
 import vn.appsmobi.utils.DetailRingToneUI;
 import vn.appsmobi.utils.DetailWallPaperUI;
+
 //Lớp cha của DetailApplicationUI, DetailMovieUI, DetailBookUI
 public class AppDetailActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<BaseResult>, Refreshable {
 

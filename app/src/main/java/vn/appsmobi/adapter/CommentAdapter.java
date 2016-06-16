@@ -20,14 +20,11 @@ import vn.appsmobi.model.DataCardItem;
 import vn.appsmobi.ui.ViewHolderComment;
 import vn.appsmobi.utils.Constants;
 
-/**
- * Created by tobrother on 05/01/2016.
- */
-//Set adapter cho phần list comment trong chi tiết của appDetailActivity gồm: app, film, game, book
 public class CommentAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<CardItem> cardItems;
     private DisplayImageOptions options;
+    private ViewHolderComment viewHolderComment;
 
     public CommentAdapter(Context context, ArrayList<CardItem> cardItems, DisplayImageOptions options) {
         this.context = context;
@@ -52,7 +49,6 @@ public class CommentAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolderComment viewHolderComment = null;
         if (convertView == null) {
             LayoutInflater li = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             convertView = li.inflate(R.layout.item_comment, null);

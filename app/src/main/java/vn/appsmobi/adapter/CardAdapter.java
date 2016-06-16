@@ -1,9 +1,5 @@
 package vn.appsmobi.adapter;
 
-/**
- * Created by tobrother on 23/01/2016.
- */
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;

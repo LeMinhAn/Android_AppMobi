@@ -46,60 +46,65 @@ import vn.appsmobi.utils.ToastUtil;
 import vn.appsmobi.utils.Utils;
 
 import static vn.appsmobi.utils.UIUtils.calculateActionBarSize;
-//Sử dụng để hiện thị danh sách các sản phẩm có trong 1 dnah mục cụ thể. ví dụ như: app, game, wallpaper, ringtone
+
 public class ReadMoreActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<BaseResult>, Refreshable, DataBidingAdapter.OnClickEvent {
 
-    // init value
-    ArrayList<CardItem> cardItems;
-    DataBidingAdapter dataBidingAdapter;
-    private int resType, card_data_type;
+    private ArrayList<CardItem> cardItems;
+    private DataBidingAdapter dataBidingAdapter;
+    private int card_data_type;
     public static int STATE_NOT_PLAY = -1;
     private int currentPlayingPosition = STATE_NOT_PLAY;
-    // image loader library
-    // drawable for image play
     public Drawable IMAGE_PLAY, IMAGE_PAUSE;
-    // init view
-    int color;
-    ObservableRecyclerView rvDataCardList;
-    LinearLayout toolbarContainer;
-    // Loader for this activity
-    CardLoader cardLoader;
-    EmptyLoadingView cardLoadingFragment;
-    // Init for Media Stream
+    private ObservableRecyclerView rvDataCardList;
+    private LinearLayout toolbarContainer;
+    private CardLoader cardLoader;
+    private EmptyLoadingView cardLoadingFragment;
     public static MediaPlayer mpPlayStream;
     private Handler mHandler = new Handler();
     private PlaybackUpdater mProgressUpdater = new PlaybackUpdater();
-    // config for scroll recycle View
     boolean isEndBottom = false;
-    StaggeredGridLayoutManager gridLayout;
-    Context mContext;
+    private StaggeredGridLayoutManager gridLayout;
+    private Context mContext;
+    public static LinearLayout llActionBar;
+    public static Toolbar toolbar;
+    public static TextView tvToolBarTitle;
+    private ImageView ivBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_data_card_list);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        mContext = this;
+        setContentView(R.layout.activity_more_app);
+
         getData();
         initView();
-        initValues();
         initActions();
         getSupportLoaderManager().initLoader(0, null, this);
     }
 
     public void getData() {
-        // Image loader
-        // get image from drawable folder
-        //IMAGE_PLAY = "drawable://" + R.drawable.ic_play_circle;
-        //IMAGE_PAUSE ="drawable://" +  R.drawable.ic_pause_ring_stone;
+
         card_data_type = getIntent().getIntExtra(Constants.Intent.CARD_DATA_TYPE, 0);
         IMAGE_PLAY = getResources().getDrawable(R.drawable.ic_play_circle);
         IMAGE_PAUSE = getResources().getDrawable(R.drawable.ic_pause_ring_stone);
-        cardItems = new ArrayList<>();
+
     }
 
     public void initView() {
+        mContext = this;
+
+        toolbar = (Toolbar) findViewById(R.id.myToolbar);
+        setSupportActionBar(toolbar);
+        llActionBar = (LinearLayout) findViewById(R.id.llActionBar);
+        tvToolBarTitle = (TextView) findViewById(R.id.tvToolBarTitle);
+        tvToolBarTitle.setTextColor(getResources().getColor(R.color.text_toolbar_change));
+        toolbar.setBackgroundDrawable(getResources().getDrawable(R.color.main_color));
+        ivBack = (ImageView) findViewById(R.id.ivBack);
+
+
+        cardItems = new ArrayList<>();
+        dataBidingAdapter = new DataBidingAdapter(this, cardItems);
+        dataBidingAdapter.implementRecyclerAdapterMethods(myRecyclerAdapterMethods);
+
         cardLoadingFragment = (EmptyLoadingView) findViewById(R.id.cardLoadingFragment);
         cardLoadingFragment.setRefreshable(this);
         cardLoadingFragment.setNoNewDataCallback(new EmptyLoadingView.NoNewDataCallback() {
@@ -109,10 +114,45 @@ public class ReadMoreActivity extends AppCompatActivity implements LoaderManager
                 return false;
             }
         });
-        toolbarContainer = (LinearLayout) findViewById(R.id.llActionBar);
-        rvDataCardList = (ObservableRecyclerView) findViewById(R.id.rvDataCardList);
-        // set layout manager for recycle view
 
+        rvDataCardList = (ObservableRecyclerView) findViewById(R.id.rvDataCardList);
+        setLayoutManager();
+
+    }
+
+    public void initActions() {
+        rvDataCardList.setOnScrollListener(new HidingScrollListener(this) {
+            @Override
+            public void onMoved(int distance) {
+                toolbarContainer.setTranslationY(-distance);
+            }
+
+            @Override
+            public void onShow() {
+                toolbarContainer.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+            }
+
+            @Override
+            public void onHide() {
+                toolbarContainer.animate().translationY(-calculateActionBarSize(mContext)).setInterpolator(new AccelerateInterpolator(2)).start();
+            }
+        });
+        rvDataCardList.setAdapter(dataBidingAdapter);
+        dataBidingAdapter.setOnClickEvent(this);
+        rvDataCardList.setOnScrollListener(mOnScrollListener);
+        //rvDataCardList.setItemViewCacheSize(4);
+        // rvDataCardList.setScrollViewCallbacks((ObservableScrollViewCallbacks) getActivity());
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ReadMoreActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    private void setLayoutManager() {
         if (card_data_type == Constants.CARD_DATA_TYPE.WALLPAPER) {
             gridLayout = new StaggeredGridLayoutManager(2, 1);
         } else if (card_data_type == Constants.CARD_DATA_TYPE.RINGTONE) {
@@ -120,13 +160,12 @@ public class ReadMoreActivity extends AppCompatActivity implements LoaderManager
         } else {
             gridLayout = new StaggeredGridLayoutManager(1, 1);
         }
-
         gridLayout.setReverseLayout(false);
         rvDataCardList.setLayoutManager(gridLayout);
         rvDataCardList.setHasFixedSize(true);
     }
 
-    DataBidingAdapter.RecyclerAdapterMethods myRecyclerAdapterMethods = new DataBidingAdapter.RecyclerAdapterMethods() {
+    private DataBidingAdapter.RecyclerAdapterMethods myRecyclerAdapterMethods = new DataBidingAdapter.RecyclerAdapterMethods() {
         @Override
         public void changeViewPlayRingTone(ViewHolderRingStone vh, int position) {
             CircularProgressBar pb = vh.getCpcPlayRingStone();   //Cast
@@ -184,17 +223,13 @@ public class ReadMoreActivity extends AppCompatActivity implements LoaderManager
             }
             //adapterCardSuggest.notifyItemChanged(currentPlayingPosition);
         }
-
     };
 
     @Override
     public void onClick(View v, int position) throws JSONException {
         if (cardItems.get(position).getCard_type() != Constants.CARD_TYPE.HORIZONTAL_CARD && cardItems.get(position).getCard_type() != Constants.CARD_TYPE.TEXT_CARD) {
-            /*
-            ***
-             */
             if (card_data_type == Constants.CARD_TYPE.IMAGE_CARD) {
-                Intent intent = new Intent(mContext, ImageDetailActivity.class);
+                Intent intent = new Intent(this, ImageDetailActivity.class);
                 // Setup the transition to the detail activity
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, findViewById(R.id.ivImageWallPaper), "cover");
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -203,10 +238,9 @@ public class ReadMoreActivity extends AppCompatActivity implements LoaderManager
             } else {
                 DataCardItem card = new DataCardItem();
                 card.valueOf(cardItems.get(position).getCard_data().getJSONObject(0));
-                Utils.EventClick.CardClick(mContext, card);
+                Utils.EventClick.CardClick(this, card);
             }
         }
-
     }
 
     private class PlaybackUpdater implements Runnable {
@@ -231,14 +265,8 @@ public class ReadMoreActivity extends AppCompatActivity implements LoaderManager
                 }
                 mHandler.postDelayed(this, 100);
             } else {
-
             }
         }
-    }
-
-    public void initValues() {
-        dataBidingAdapter = new DataBidingAdapter(this, cardItems);
-        dataBidingAdapter.implementRecyclerAdapterMethods(myRecyclerAdapterMethods);
     }
 
     private void stopPlayback() {
@@ -299,37 +327,9 @@ public class ReadMoreActivity extends AppCompatActivity implements LoaderManager
         } catch (Exception e) {
             e.printStackTrace();
             stopPlayback();
-
         }
 
     }
-
-    public void initActions() {
-        rvDataCardList.setOnScrollListener(new HidingScrollListener(mContext) {
-            @Override
-            public void onMoved(int distance) {
-                toolbarContainer.setTranslationY(-distance);
-            }
-
-            @Override
-            public void onShow() {
-                toolbarContainer.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
-            }
-
-            @Override
-            public void onHide() {
-                toolbarContainer.animate().translationY(-calculateActionBarSize(mContext)).setInterpolator(new AccelerateInterpolator(2)).start();
-            }
-        });
-
-        rvDataCardList.setAdapter(dataBidingAdapter);
-        dataBidingAdapter.setOnClickEvent(this);
-        rvDataCardList.setOnScrollListener(mOnScrollListener);
-        //rvDataCardList.setItemViewCacheSize(4);
-        // rvDataCardList.setScrollViewCallbacks((ObservableScrollViewCallbacks) getActivity());
-
-    }
-
 
     private RecyclerView.OnScrollListener mOnScrollListener = new RecyclerView.OnScrollListener() {
         @Override
@@ -371,7 +371,7 @@ public class ReadMoreActivity extends AppCompatActivity implements LoaderManager
 
     @Override
     public Loader<BaseResult> onCreateLoader(int id, Bundle args) {
-        cardLoader = new CardLoader(mContext);
+        cardLoader = new CardLoader(this);
         cardLoader.setProgressNotifiable(cardLoadingFragment);
         cardLoader.setRequestType(Constants.RequestType.MORE_LIST);
         cardLoader.setCardDataType(card_data_type);
