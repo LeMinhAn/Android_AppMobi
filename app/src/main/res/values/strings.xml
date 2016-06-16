@@ -18,6 +18,13 @@
     <string name="menu_setting">Cài Đặt</string>
     <string name="search_hint">Tìm kiếm ....</string>
     <string name="back_again">Please click BACK again to exit.</string>
+
+    <!--Data Card Parent Fragment-->
+    <string name="card_category">DANH MỤC</string>
+    <string name="card_hot">NỔI BẬT</string>
+    <string name="card_top">TOP CÀI ĐẶT</string>
+    <string name="card_new">MỚI NHẤT</string>
+
     <string-array name="menu_titles">
         <item>Ứng dụng</item>
         <item>Trò chơi</item>

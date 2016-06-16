@@ -44,10 +44,10 @@ public class HomeActivity extends AppCompatActivity {
 
     private AccountHeader headerResult;
     private SearchView searchView = null;
-    private TextView tvToolBarTitle;
-    public static LinearLayout llActionBar;
-    public Toolbar myToolbar;
+    public static TextView tvToolBarTitle;
     boolean doubleBackToExitPressedOnce;
+    public static LinearLayout llActionBar;
+    public static Toolbar myToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

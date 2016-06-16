@@ -19,7 +19,6 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.TextView;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
@@ -43,29 +42,24 @@ import vn.appsmobi.utils.Constants;
 import static vn.appsmobi.utils.UIUtils.getScreenWidth;
 import static vn.appsmobi.utils.UIUtils.setGridViewHeightBasedOnChildren;
 
-/**
- * Created by tobrother on 04/04/2016.
- */
-//Fragment của trang Home
 public class HomeFragment extends Fragment implements LoaderManager.LoaderCallbacks<BaseResult>, Refreshable, ObservableScrollViewCallbacks {
-    // View
-    View view;
-    GridView gvFragmentHome;
-    RecyclerView rvFragmentHome;
-    EmptyLoadingView clFragmentHome;
-    StaggeredGridLayoutManager gridLayout;
-    ObservableScrollView svParentHomeFragment;
-    // Loader for this activity
-    CardLoader cardLoader;
+
+    private View view;
+    private GridView gvFragmentHome;
+    private RecyclerView rvFragmentHome;
+    private EmptyLoadingView clFragmentHome;
+    private StaggeredGridLayoutManager staggeredGridLayoutManager;
+    private ObservableScrollView svParentHomeFragment;
+
+    private CardLoader cardLoader;
     boolean isEndBottom = false;
-    // ----- init array list------
-    ArrayList<CardItem> cardItems;
-    ArrayList<ItemMenu> item_menus;
-    String[] menu_titles;
-    TypedArray menu_icons;
-    // ------ init adapter---------
-    AdapterHomeMenu menuAdapter;
-    HomeAdapter adapterCardSuggest;
+    private ArrayList<CardItem> cardItems;
+    private ArrayList<ItemMenu> item_menus;
+    private String[] menu_titles;
+    private TypedArray menu_icons;
+
+    private AdapterHomeMenu menuAdapter;
+    private HomeAdapter adapterCardSuggest;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,64 +67,55 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Đọc file fragment_home.xml để vẽ ra giao diện người dùng.
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
-        getData();
+
         initView();
-        initValues();
         initActions();
+
         return view;
     }
 
-    // ___________GET DATA_____________ //
-    public void getData() {
-        //Get data cho header fragment home
+
+    private void initView() {
+        item_menus = new ArrayList<>();
+        cardItems = new ArrayList<>();
+        gvFragmentHome = (GridView) view.findViewById(R.id.gvFragmentHome);
+        setViewGridview();
+
+        rvFragmentHome = (RecyclerView) view.findViewById(R.id.rvFragmentHome);
+        adapterCardSuggest = new HomeAdapter(getActivity(), cardItems);
+        staggeredGridLayoutManager = new StaggeredGridLayoutManager(1, 1);
+        staggeredGridLayoutManager.setReverseLayout(false);
+        rvFragmentHome.setLayoutManager(staggeredGridLayoutManager);
+        rvFragmentHome.setBackgroundColor(Color.TRANSPARENT);
+        rvFragmentHome.setAdapter(adapterCardSuggest);
+
+        clFragmentHome = (EmptyLoadingView) view.findViewById(R.id.clFragmentHome);
+        refreshView();
+
+        svParentHomeFragment = (ObservableScrollView) view.findViewById(R.id.svParentHomeFragment);
+        svParentHomeFragment.setScrollViewCallbacks(this);
+
+        HomeActivity.llActionBar.setBackgroundResource(android.R.color.transparent);
+        HomeActivity.myToolbar.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.bg_toolbar));
+    }
+
+    private void setViewGridview() {
+
         menu_titles = getResources().getStringArray(R.array.menu_titles);
         menu_icons = getResources().obtainTypedArray(R.array.menu_icons);
-        item_menus = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
             item_menus.add(new ItemMenu(i, menu_titles[i], menu_icons.getResourceId(i, -1)));
         }
-
-        cardItems = new ArrayList<>();
-    }
-
-    // ___________INIT VIEW_____________ //
-    public void initView() {
-        //set background cho linner bao thanh tollbar
-        getActivity().findViewById(R.id.llActionBar).setBackgroundResource(android.R.color.transparent);
-        //set background cho thanh toolbar, ở đây set background là hình chữ nhật màu trắng, bo góc
-        getActivity().findViewById(R.id.myToolbar).setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.bg_toolbar));
-        // view for this fragment
-        gvFragmentHome = (GridView) view.findViewById(R.id.gvFragmentHome);
-        rvFragmentHome = (RecyclerView) view.findViewById(R.id.rvFragmentHome);
-        clFragmentHome = (EmptyLoadingView) view.findViewById(R.id.clFragmentHome);
-        svParentHomeFragment = (ObservableScrollView) view.findViewById(R.id.svParentHomeFragment);
-        // recycle
-        gridLayout = new StaggeredGridLayoutManager(1,1);
-        gridLayout.setReverseLayout(false);
-        rvFragmentHome.setLayoutManager(gridLayout);
-        rvFragmentHome.setBackgroundColor(Color.TRANSPARENT);
-
-    }
-
-
-    // ___________INIT VALUES_____________ //
-    public void initValues() {
-        //set kích thước của từng icon hiển thi trong gridview
         int sizeIconMenu = (int) ((getScreenWidth(getActivity()) / 3) - (2 * getResources().getDimension(R.dimen.margin_xlarge)));
         menuAdapter = new AdapterHomeMenu(getActivity(), item_menus, sizeIconMenu);
-        //set data cho gridview
         gvFragmentHome.setAdapter(menuAdapter);
         //Phương pháp tính chiều cao GridView dựa trên số lượng các mục nó chứa và thiết lập chiều cao cho GridView tại thời gian chạy.
         setGridViewHeightBasedOnChildren(gvFragmentHome, getActivity());
-        //recycle view
-        adapterCardSuggest = new HomeAdapter(getActivity(), cardItems);
-        rvFragmentHome.setAdapter(adapterCardSuggest);
+    }
 
-        //__________Load lại view____________//
+    private void refreshView() {
         clFragmentHome.setRefreshable(this);
         clFragmentHome.setNoNewDataCallback(new EmptyLoadingView.NoNewDataCallback() {
             @Override
@@ -139,12 +124,9 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
                 return false;
             }
         });
-
     }
 
-    // ___________INIT ACTIONS_____________ //
-    public void initActions() {
-        //Sự kiện onClick items gridview
+    private void initActions() {
         gvFragmentHome.setOnItemClickListener(new GridView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -171,15 +153,11 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
                         fragment = new DataCardParentFragment2().newInstance(Constants.CARD_DATA_TYPE.RINGTONE);
                         break;
                 }
-                ((TextView) ((HomeActivity) getActivity()).myToolbar.findViewById(R.id.tvToolBarTitle)).setTextColor(Color.parseColor("#FFFFFF"));
-                //Cập nhật lại fragment
+                HomeActivity.tvToolBarTitle.setTextColor(Color.parseColor("#FFFFFF"));
                 transaction.replace(R.id.flMainContainer, fragment);
                 transaction.commit();
             }
         });
-        //Gọi hàm setScrollViewCallbacks cho custom ScrollView
-        svParentHomeFragment.setScrollViewCallbacks(this);
-
     }
 
     @Override
@@ -198,13 +176,10 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
         super.onDetach();
     }
 
-
-    //Bộ loader dùng để load data
     @Override
     public Loader<BaseResult> onCreateLoader(int id, Bundle args) {
         cardLoader = new CardLoader(getActivity());
         cardLoader.setProgressNotifiable(clFragmentHome);
-        // cardLoader.setRequestType(0);
         return cardLoader;
     }
 
@@ -231,26 +206,20 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
 
     @Override
     public void onLoaderReset(Loader<BaseResult> loader) {
-
     }
-
-
     @Override
     public void refreshData() {
         if (cardLoader != null)
             cardLoader.reload();
     }
 
-
     @Override
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
         ViewHelper.setTranslationY(gvFragmentHome, scrollY / 2);
-
     }
 
     @Override
     public void onDownMotionEvent() {
-
     }
 
     @Override
@@ -260,7 +229,7 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
         }
         if (scrollState == ScrollState.UP) {
             if (((AppCompatActivity) getActivity()).getSupportActionBar().isShowing()) {
-                getActivity().findViewById(R.id.myToolbar).animate()
+                HomeActivity.myToolbar.animate()
                         .translationY(-getActivity().findViewById(R.id.myToolbar).getBottom())
                         .setInterpolator(new AccelerateInterpolator())
                         .start();
@@ -269,7 +238,7 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
         } else if (scrollState == ScrollState.DOWN) {
             if (!((AppCompatActivity) getActivity()).getSupportActionBar().isShowing()) {
                 ((AppCompatActivity) getActivity()).getSupportActionBar().show();
-                getActivity().findViewById(R.id.myToolbar).animate()
+                HomeActivity.myToolbar.animate()
                         .translationY(0)
                         .setInterpolator(new AccelerateInterpolator())
                         .start();
