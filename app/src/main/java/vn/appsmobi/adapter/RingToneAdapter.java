@@ -23,6 +23,7 @@ public class RingToneAdapter extends BaseAdapter {
     Context context;
     DisplayImageOptions options;
     int cardDataType;
+    private ViewHolderRingStone viewHolderRingStone;
 
     public RingToneAdapter(JSONArray dataCardItems, Context context, DisplayImageOptions options, int cardDataType) {
         this.dataCardItems = dataCardItems;
@@ -53,7 +54,6 @@ public class RingToneAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final ViewHolderRingStone viewHolderRingStone;
         if (convertView == null) {
             LayoutInflater li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = li.inflate(R.layout.item_ring_stone, null);

@@ -25,14 +25,12 @@ import static vn.appsmobi.utils.UIUtils.setRatingSize;
  */
 
 public class FullActionButton extends ActionArea {
-    /**
-     * init group view
-     */
-    View viewParent;
-    TextView tvItemStatusAppManage;
-    TextView tvItemProcessAppManage;
-    TextView tvItemPercentProcessAppManage;
-    RelativeLayout rlProcessAppManage, rlSetting;
+
+    private View viewParent;
+    private TextView tvItemStatusAppManage;
+    private TextView tvItemProcessAppManage;
+    private TextView tvItemPercentProcessAppManage;
+    private RelativeLayout rlProcessAppManage, rlSetting;
 
     ProgressBar pbProcessAppManage;
     ImageView ivStopProcessAppManager;

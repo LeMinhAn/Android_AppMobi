@@ -57,8 +57,6 @@ public class CardDetailLoader extends BaseLoader {
         detailCardResult.suggestApps = CardItem.valueOfList(json.getJSONObject(Constants.JSON_OBJECT.SUGGEST_CARDS));
         return detailCardResult;
     }
-
-
     //Update Task
     private class CardInfoUpdateTask extends BaseLoader.UpdateTask {
         public CardInfoUpdateTask() {
@@ -70,8 +68,6 @@ public class CardDetailLoader extends BaseLoader {
             return new Request(Constants.getCardInfo(1));
         }
     }
-
-
     // Detail Card Result
     public static class DetailCardResult extends BaseResult {
         public ArrayList<CardItem> comments;
@@ -97,6 +93,4 @@ public class CardDetailLoader extends BaseLoader {
 
 
     }
-    //******************************************************************
-
 }

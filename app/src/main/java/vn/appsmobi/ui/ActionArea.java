@@ -21,7 +21,6 @@ import vn.appsmobi.utils.LocalAppManager;
  */
 public abstract class ActionArea extends LinearLayout {
 
-
     protected Context mContext;
     protected DataCardItem mAppInfo;
     protected boolean iClicked = false;
@@ -32,11 +31,7 @@ public abstract class ActionArea extends LinearLayout {
     {
         public void onClick(View paramAnonymousView)
         {
-
-
             clickListener();
-
-
         }
     };
     */
@@ -86,12 +81,9 @@ public abstract class ActionArea extends LinearLayout {
             });
         }
 
-
         @Override
         public void onStateUpdate(String paramString, int paramInt1,
                                   int paramInt2) {
-
-
         }
     };
 
@@ -100,7 +92,6 @@ public abstract class ActionArea extends LinearLayout {
 
         // TODO Auto-generated constructor stub
         this.mContext = context;
-
     }
 
     /**
@@ -149,9 +140,7 @@ public abstract class ActionArea extends LinearLayout {
                 setVisibility(View.VISIBLE);
             }
         }
-
     }
-
 
     protected abstract void bindInstalled(DataCardItem appInfo);
 

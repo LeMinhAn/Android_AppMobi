@@ -21,13 +21,11 @@ public class ImageAdapter extends BaseAdapter {
     Context context;
     ArrayList<String> imageArray;
     DisplayImageOptions options;
-    int width;
 
     public ImageAdapter(Context context, ArrayList<String> imageArray, DisplayImageOptions options) {
         this.context = context;
         this.imageArray = imageArray;
         this.options = options;
-        //this.width=width;
     }
 
     @Override

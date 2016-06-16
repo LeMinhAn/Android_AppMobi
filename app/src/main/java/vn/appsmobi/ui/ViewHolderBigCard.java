@@ -38,6 +38,7 @@ public class ViewHolderBigCard extends RecyclerView.ViewHolder {
 
     public ViewHolderBigCard(View v) {
         super(v);
+
         ivImageCardSuggest = (ImageView) v.findViewById(R.id.ivImageCardSuggest);
         tvNameCardSuggest = (TextView) v.findViewById(R.id.tvNameCardSuggest);
         llContainer = (LinearLayout) v.findViewById(R.id.llContainer);

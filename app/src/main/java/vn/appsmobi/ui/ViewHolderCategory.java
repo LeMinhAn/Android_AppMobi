@@ -18,6 +18,7 @@ public class ViewHolderCategory extends RecyclerView.ViewHolder {
 
     public ViewHolderCategory(View itemView) {
         super(itemView);
+
         tvCategoryName = (TextView) itemView.findViewById(R.id.tvCategoryName);
         tvCategoryName.setOnClickListener(new View.OnClickListener() {
             @Override

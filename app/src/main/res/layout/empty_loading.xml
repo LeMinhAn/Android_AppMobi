@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/keyline_1"
-            android:text="Khoong co ket noi" />
+            android:text="Không có kết nối" />
 
         <TextView
             style="@style/TextAppearance.Body2.White"

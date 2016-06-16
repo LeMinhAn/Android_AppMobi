@@ -9,15 +9,10 @@ import android.view.animation.AccelerateInterpolator;
 
 import vn.appsmobi.R;
 
-/**
- * Created by tobrother on 04/04/2016.
- */
-//Fragment của trang Setting
 public class SettingFragment extends Fragment {
-    // View
-    View view;
 
-    // ___________LOADING_____________ //
+    private View view;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,37 +21,20 @@ public class SettingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_setting, container, false);
-        getData();
+
         initView();
-        initValues();
-        initActions();
+
         return view;
     }
 
-    public void getData() {
-        // get data for header menu
-
-    }
 
     public void initView() {
-        // getActivity().getActionBar().show();
         getActivity().findViewById(R.id.myToolbar).animate()
                 .translationY(0)
                 .setInterpolator(new AccelerateInterpolator())
                 .setDuration(100)
                 .start();
-
-    }
-
-    public void initValues() {
-
-    }
-
-    public void initActions() {
-
-
     }
 }
 

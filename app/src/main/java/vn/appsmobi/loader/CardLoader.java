@@ -70,8 +70,6 @@ public class CardLoader extends BaseLoader {
         cardResult.cards = CardItem.valueOfList(paramJSONObject);
         return cardResult;
     }
-
-
     //Update Task
     private class CardUpdateTask extends BaseLoader.UpdateTask {
         protected boolean isAppend;
@@ -94,7 +92,6 @@ public class CardLoader extends BaseLoader {
             } else {
                 return new Request(Constants.getAllForHomeActivity() + "/page/" + page);
             }
-
         }
 
         protected BaseResult onDataLoaded(BaseResult oldResult, BaseResult newResult) {

@@ -29,24 +29,17 @@ import vn.appsmobi.utils.LocalAppManager;
 
 import static vn.appsmobi.utils.UIUtils.getScreenHeight;
 
-/**
- * Created by tobrother on 04/04/2016.
- */
-//Fragment của Lịch sử cài đặt
+
 public class HistorySettingFragment extends Fragment {
-    // View
-    View view;
-    // init value
-    ArrayList<DataCardItem> itemAppManages;
-    List<AppManageSectionAdapter.Section> sections;
+
+    private View view;
+    private ArrayList<DataCardItem> itemAppManages;
+    private List<AppManageSectionAdapter.Section> sections;
+    private Context context;
+    private RecyclerView rvAppManage;
+    int sectionOfset = 0;
     AppManageAdapter appManageAdapter;
     AppManageSectionAdapter appManageSectionAdapter;
-    Context context;
-    // image loader library
-    DisplayImageOptions options;
-    // init view
-    RecyclerView rvAppManage;
-    int sectionOfset = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,41 +49,29 @@ public class HistorySettingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.activity_app_manage, container, false);
-        context = getActivity();
-        getValues();
+
         initViews();
-        // initValue();
-        initAction();
-        // get Section
-        sections = new ArrayList<>();
-        new LoadApplications().execute();
+
         return view;
     }
 
-    public void getValues() {
-        // packageManager
-        // Image loader
-    }
-
     public void initViews() {
-        rvAppManage = (RecyclerView) view.findViewById(R.id.rvAppManage);
-        rvAppManage.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
-        rvAppManage.setLayoutManager(linearLayoutManager);
-    }
+        context = getActivity();
 
-    public void initValue() {
+        sections = new ArrayList<>();
+        new LoadApplications().execute();
+
+        rvAppManage = (RecyclerView) view.findViewById(R.id.rvAppManage);
+        
         AppManageSectionAdapter.Section[] dummy = new AppManageSectionAdapter.Section[sections.size()];
         appManageAdapter = new AppManageAdapter(context, itemAppManages);
         appManageSectionAdapter = new AppManageSectionAdapter(context, appManageAdapter, rvAppManage);
         appManageSectionAdapter.setSections(sections.toArray(dummy));
         rvAppManage.setAdapter(appManageSectionAdapter);
-    }
-
-    public void initAction() {
-
+        rvAppManage.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+        rvAppManage.setLayoutManager(linearLayoutManager);
     }
 
     private void displayAboutDialog() {

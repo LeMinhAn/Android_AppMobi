@@ -22,19 +22,14 @@ import vn.appsmobi.ui.ViewHolderListVerticalCard;
 import vn.appsmobi.ui.ViewHolderRingStone;
 import vn.appsmobi.utils.Constants;
 
-/**
- * Created by tobrother on 26/01/2016.
- */
-//Set adapter chỉ cho trang HomeFragment
 public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    ArrayList<CardItem> cardItems;
+    private ArrayList<CardItem> cardItems;
     private DisplayImageOptions options;
-    Context context;
-    RecyclerAdapterMethods mRecyclerAdapterMethods;
+    private Context context;
+    private RecyclerAdapterMethods mRecyclerAdapterMethods;
     OnClickEvent mOnClickEvent;
     public String TAG = "DataBidingAdapter";
 
-    // interface
     public interface OnClickEvent {
         void onClick(View v, int position) throws JSONException;
     }
@@ -65,18 +60,11 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         final RecyclerView.ViewHolder viewHolder;
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         switch (viewType) {
-            //HORIZONTAL_CARD_ONE hiện không có trong HomeFragment. Home Fragment hiện chỉ có BIG CARD, HORIZONTAL_CARD, VERTICAL_CARD
-            //BIG_CARD LÀ CÁI ĐẦU TIÊN
-            //HORIZONTAL_CARD GỒM: MORE, NEW PAPER, NEW MUSIC
-            //VERTICAL_CARD GỒM: APP THIẾU NHI, GAME MỚI
-            //Dựa vào CardItem.card_type mà quy định cách hiển thị cho từng loại card
-            //Giá trị trả về là số
             //if card_type = 0 thì đó là BIG_CARD
             case Constants.HOME_CARD_TYPE.BIG_CARD:
                 View viewHolderBigCard = inflater.inflate(R.layout.item_big_card, parent, false);
                 viewHolder = new ViewHolderBigCard(viewHolderBigCard);
                 break;
-            //if card_type = 4 thì đó là TEXT_CARD
             case Constants.HOME_CARD_TYPE.TEXT_CARD: // category
                 View viewTextCard = inflater.inflate(R.layout.item_category, parent, false);
                 viewHolder = new ViewHolderCategory(viewTextCard);
@@ -149,14 +137,12 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 }
                 break;
             case Constants.CARD_TYPE.VERTICAL_CARD: // app , game , book , movie card
-
                 ViewHolderListVerticalCard viewHolderVerticalCard = (ViewHolderListVerticalCard) holder;
                 //set giá trị cho vertical card
                 viewHolderVerticalCard.setValue(cardItem, context, options);
                 break;
             case Constants.CARD_TYPE.HORIZONTAL_CARD_ONE: // ringtone card
                 final ViewHolderRingStone vh = (ViewHolderRingStone) holder;
-
                 mRecyclerAdapterMethods.changeViewPlayRingTone((ViewHolderRingStone) vh, position);
                 vh.getSizeFull();
                 vh.setSize();
@@ -173,7 +159,6 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         mRecyclerAdapterMethods.configurePlayRingTone(vh, position);
                     }
                 });
-
                 break;
             case Constants.CARD_TYPE.IMAGE_CARD:  // wall paper card
                 try {

@@ -1,4 +1,4 @@
-package com.example.tobrother272.appsmobi.libs;
+package vn.appsmobi.libs;
 
 import android.content.Context;
 import android.database.SQLException;

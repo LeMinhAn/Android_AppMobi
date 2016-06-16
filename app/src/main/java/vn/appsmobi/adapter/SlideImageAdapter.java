@@ -14,16 +14,13 @@ import org.json.JSONException;
 import vn.appsmobi.R;
 import vn.appsmobi.ui.ViewHolderImage;
 
-/**
- * Created by tobrother on 27/01/2016.
- */
-//Set adapter cho riêng wallpaper
 public class SlideImageAdapter extends BaseAdapter {
 
     private JSONArray dataCardItems;
     private Context context;
     private DisplayImageOptions options;
     private int cardDataType;
+    private ViewHolderImage viewHolderImage;
 
     public SlideImageAdapter(JSONArray dataCardItems, Context context, DisplayImageOptions options, int cardDataType) {
         this.dataCardItems = dataCardItems;
@@ -55,7 +52,6 @@ public class SlideImageAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolderImage viewHolderImage = null;
         if (convertView == null) {
             LayoutInflater li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = li.inflate(R.layout.item_card_image, null);

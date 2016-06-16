@@ -1,4 +1,4 @@
-package com.example.tobrother272.appsmobi.libs;
+package vn.appsmobi.libs;
 
 /**
  * Created by Nguyen on 8/5/2015.
