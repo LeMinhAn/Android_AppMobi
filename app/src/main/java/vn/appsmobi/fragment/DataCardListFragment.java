@@ -22,7 +22,6 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView;
@@ -51,44 +50,37 @@ import vn.appsmobi.utils.Utils;
 
 import static vn.appsmobi.utils.UIUtils.calculateActionBarSize;
 
-//Bắt sự kiện trong từng items trong fragment tương ứng
 public class DataCardListFragment extends Fragment implements LoaderManager.LoaderCallbacks<BaseResult>, Refreshable, DataBidingAdapter.OnClickEvent {
-    // init value
-    ArrayList<CardItem> cardItems;
-    DataBidingAdapter dataBidingAdapter;
+
+    private ArrayList<CardItem> cardItems;
+    private DataBidingAdapter dataBidingAdapter;
     private int resType, card_data_type;
-    public static int STATE_NOT_PLAY = -1;
     private int currentPlayingPosition = STATE_NOT_PLAY;
-    // image loader library
-    // drawable for image play
-    public Drawable IMAGE_PLAY, IMAGE_PAUSE;
-    // init view
-    View view;
-    int color;
-    ObservableRecyclerView rvDataCardList;
-    // Loader for this activity
-    CardLoader cardLoader;
-    EmptyLoadingView cardLoadingFragment;
-    // Init for Media Stream
-    public static MediaPlayer mpPlayStream;
+    private Drawable IMAGE_PLAY, IMAGE_PAUSE;
+    private View view;
+
+    private ObservableRecyclerView rvDataCardList;
+    private CardLoader cardLoader;
+    private EmptyLoadingView cardLoadingFragment;
     private Handler mHandler = new Handler();
     private PlaybackUpdater mProgressUpdater = new PlaybackUpdater();
-    // config for scroll recycle View
+    private StaggeredGridLayoutManager gridLayout;
+
+    public static MediaPlayer mpPlayStream;
+    public static int STATE_NOT_PLAY = -1;
+
     boolean isEndBottom = false;
-    StaggeredGridLayoutManager gridLayout;
+    int color;
 
     @SuppressLint("ValidFragment")
     public DataCardListFragment(int color) {
         this.color = color;
     }
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     public DataCardListFragment() {
-        // Required empty public constructor+
     }
 
-    // TODO: Rename and change types and number of parameters
     public static DataCardListFragment newInstance(int tab_type, int fragment_type) {
         DataCardListFragment fragment = new DataCardListFragment();
         Bundle args = new Bundle();
@@ -108,13 +100,12 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         view = inflater.inflate(R.layout.fragment_data_card_list, container, false);
+
         getData();
         initView();
-        initValues();
         initActions();
         /*
         Fragment parentFragment = getParentFragment();
@@ -130,18 +121,13 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
     }
 
     public void getData() {
-        // Image loader
-        // get image from drawable folder
-        //IMAGE_PLAY = "drawable://" + R.drawable.ic_play_circle;
-        //IMAGE_PAUSE ="drawable://" +  R.drawable.ic_pause_ring_stone;
+
         IMAGE_PLAY = getActivity().getResources().getDrawable(R.drawable.ic_play_circle);
         IMAGE_PAUSE = getActivity().getResources().getDrawable(R.drawable.ic_pause_ring_stone);
-        cardItems = new ArrayList<>();
+
     }
 
-    public void initView() {
-
-        cardLoadingFragment = (EmptyLoadingView) view.findViewById(R.id.cardLoadingFragment);
+    private void refreshView() {
         cardLoadingFragment.setRefreshable(this);
         cardLoadingFragment.setNoNewDataCallback(new EmptyLoadingView.NoNewDataCallback() {
             @Override
@@ -150,9 +136,9 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
                 return false;
             }
         });
+    }
 
-        rvDataCardList = (ObservableRecyclerView) view.findViewById(R.id.rvDataCardList);
-        // set layout manager for recycle view
+    private void setLayoutManager() {
         if (resType == Constants.TAB_TYPE.CATEGORY) {
             gridLayout = new StaggeredGridLayoutManager(1, 1);
         } else {
@@ -165,14 +151,52 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
             }
         }
         gridLayout.setReverseLayout(false);
+    }
+
+    public void initView() {
+
+        cardItems = new ArrayList<>();
+        dataBidingAdapter = new DataBidingAdapter(getActivity(), cardItems);
+        dataBidingAdapter.implementRecyclerAdapterMethods(myRecyclerAdapterMethods);
+
+        cardLoadingFragment = (EmptyLoadingView) view.findViewById(R.id.cardLoadingFragment);
+        refreshView();
+
+        rvDataCardList = (ObservableRecyclerView) view.findViewById(R.id.rvDataCardList);
+        setLayoutManager();
         rvDataCardList.setLayoutManager(gridLayout);
         rvDataCardList.setHasFixedSize(true);
+    }
+
+    public void initActions() {
+        rvDataCardList.setOnScrollListener(new HidingScrollListener(getActivity()) {
+            @Override
+            public void onMoved(int distance) {
+                HomeActivity.llActionBar.setTranslationY(-distance);
+            }
+
+            @Override
+            public void onShow() {
+                HomeActivity.llActionBar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+            }
+
+            @Override
+            public void onHide() {
+                HomeActivity.llActionBar.animate().translationY(-calculateActionBarSize(getActivity())).setInterpolator(new AccelerateInterpolator(2)).start();
+            }
+        });
+        rvDataCardList.setAdapter(dataBidingAdapter);
+        dataBidingAdapter.setOnClickEvent(this);
+        rvDataCardList.setOnScrollListener(mOnScrollListener);
+        //rvDataCardList.setItemViewCacheSize(4);
+        // rvDataCardList.setScrollViewCallbacks((ObservableScrollViewCallbacks) getActivity());
+
     }
 
     DataBidingAdapter.RecyclerAdapterMethods myRecyclerAdapterMethods = new DataBidingAdapter.RecyclerAdapterMethods() {
         @Override
         public void changeViewPlayRingTone(ViewHolderRingStone vh, int position) {
-            CircularProgressBar pb = vh.getCpcPlayRingStone();   //Cast
+            CircularProgressBar pb = vh.getCpcPlayRingStone();
             ImageView iv = vh.getIvPlayRingStone();
             TextView tv = vh.getTvNameRingStone();
             if (position == currentPlayingPosition) {
@@ -257,11 +281,6 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
         }
     }
 
-    public void initValues() {
-        dataBidingAdapter = new DataBidingAdapter(getActivity(), cardItems);
-        dataBidingAdapter.implementRecyclerAdapterMethods(myRecyclerAdapterMethods);
-    }
-
     private void stopPlayback() {
         currentPlayingPosition = STATE_NOT_PLAY;
         mProgressUpdater.mBarToUpdate = null;
@@ -270,7 +289,6 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
     }
 
     private void playPlayback(String source) {
-        ;
         if (mpPlayStream == null) {
             mpPlayStream = new MediaPlayer();
             mpPlayStream.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -320,33 +338,7 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
         } catch (Exception e) {
             e.printStackTrace();
             stopPlayback();
-
         }
-
-    }
-
-    public void initActions() {
-        rvDataCardList.setOnScrollListener(new HidingScrollListener(getActivity()) {
-            @Override
-            public void onMoved(int distance) {
-                HomeActivity.llActionBar.setTranslationY(-distance);
-            }
-
-            @Override
-            public void onShow() {
-                HomeActivity.llActionBar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
-            }
-
-            @Override
-            public void onHide() {
-                HomeActivity.llActionBar.animate().translationY(-calculateActionBarSize(getActivity())).setInterpolator(new AccelerateInterpolator(2)).start();
-            }
-        });
-        rvDataCardList.setAdapter(dataBidingAdapter);
-        dataBidingAdapter.setOnClickEvent(this);
-        rvDataCardList.setOnScrollListener(mOnScrollListener);
-        //rvDataCardList.setItemViewCacheSize(4);
-        // rvDataCardList.setScrollViewCallbacks((ObservableScrollViewCallbacks) getActivity());
 
     }
 
@@ -378,13 +370,11 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
             }
             /*
             if (y < dy ) {
-
                 toolbarContainer.animate()
                         .translationY(-toolbarContainer.getBottom())
                         .setInterpolator(new AccelerateInterpolator())
                         .start();
                 getActivity().findViewById(R.id.flMainContainer).setPadding(0,0,0,0);
-
             } else {
                 toolbarContainer.animate()
                         .translationY(0)
@@ -407,13 +397,7 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
 
     @Override
     public void onClick(View v, int position) throws JSONException {
-        //Điều kiện khi click vào từng item trong nổi bật, top cài đặt, mới nhất
-        //
-
         if (cardItems.get(position).getCard_type() != Constants.CARD_TYPE.HORIZONTAL_CARD && cardItems.get(position).getCard_type() != Constants.CARD_TYPE.TEXT_CARD) {
-            /*
-            ***
-             */
             if (card_data_type == Constants.CARD_TYPE.IMAGE_CARD) {
                 Intent intent = new Intent(getActivity(), ImageDetailActivity.class);
                 // Setup the transition to the detail activity
@@ -425,7 +409,6 @@ public class DataCardListFragment extends Fragment implements LoaderManager.Load
                 Utils.EventClick.CardClick(getActivity(), card);
             }
         }
-
         /*
         Intent intent = new Intent(getActivity(), ImageDetailActivity.class);
         // Setup the transition to the detail activity
